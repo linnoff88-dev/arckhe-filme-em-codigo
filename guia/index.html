@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Troque a roupa e o lugar da sua personagem sem a IA mudar o rosto dela — Filme em código</title>
+<meta name="description" content="Kit grátis: o Claude escreve um desenhista em código e uma ficha curta da cena. Troca a ficha, o desenhista fica, e a personagem mantém o mesmo rosto. Método: um motor por estilo.">
+<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/filme-em-codigo/guia/">
+<link rel="alternate" hreflang="en" href="https://inematds.github.io/filme-em-codigo/guia/en/">
+<link rel="alternate" hreflang="es" href="https://inematds.github.io/filme-em-codigo/guia/es/">
+<meta property="og:title" content="Troque a roupa e o lugar da sua personagem sem a IA mudar o rosto dela">
+<meta property="og:description" content="Um motor por estilo: você aprova a personagem uma vez e reaproveita em quantos filmes quiser. Kit grátis no inema.club.">
+<meta property="og:image" content="https://inematds.github.io/filme-em-codigo/guia/assets/banner.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#FACC15; --amb2:#f0c070; --sky:#38bdf8; --pro:#cbd5e1;
+    --fill:#FACC15; --tint:rgba(250,204,21,.12); --ok:#7CE0C6; --bad:#F0918A;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#a16207; --amb2:#a16207; --sky:#0369a1; --pro:#b45309;
+    --fill:#FACC15; --tint:#FEF9C3; --ok:#0E6B55; --bad:#A83426;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  body.light nav{background:rgba(246,247,249,.85)}
+  body.light .amb{color:var(--txt);background:linear-gradient(transparent 55%,#FACC15 55%)}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  body.light main a:not(.btn),body.light footer a{color:#854d0e;text-decoration:underline;text-decoration-color:#FACC15;text-decoration-thickness:3px}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  img{max-width:100%}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  .chip{display:inline-block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb);white-space:nowrap}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .inema:hover{filter:brightness(1.15)}
+  nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .pro:hover{filter:brightness(1.15)}
+  nav .clubpro{display:inline-flex;align-items:center;gap:6px}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
+  nav .links a.sec{color:var(--mut);white-space:nowrap} nav .links a.sec:hover{color:var(--txt)}
+  .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
+  .lang a{color:var(--mut);padding:.2em .45em;border-radius:6px} .lang a.on{color:var(--amb);background:var(--tint)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--fill);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora;border:0;cursor:pointer;font-size:1rem}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  @media(max-width:1360px){nav .links a.opt{display:none}}
+  @media(max-width:860px){nav .links a.sec{display:none}}
+  @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(250,204,21,.18),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:74px 22px}
+  .hero .wrap>div{min-width:0}
+  .hero h1{font-size:clamp(2rem,4.4vw,3.1rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.15rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:44ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000;min-width:0}
+  .hero figure img{width:100%;height:auto;display:block}
+  .resumo{padding:38px 0 34px;border-bottom:1px solid var(--line)}
+  .resumo p{font-size:1.12rem;line-height:1.7;max-width:74ch;margin:.55em 0 0}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:48px 22px}}
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:66ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;min-width:0}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.95rem;margin:0}
+  .card p+p{margin-top:.6em}
+  .card ul{margin:8px 0 0;padding-left:20px;color:var(--mut);font-size:.95rem}.card li{margin:5px 0}
+  .card b,.card strong{color:var(--txt)}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.86rem;line-height:1.6;color:#d6d6e0;margin:.4em 0 0}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:4px}
+  /* números */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+  @media(max-width:720px){.stats{grid-template-columns:1fr}}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .stat b{display:block;font:800 clamp(1.9rem,4vw,2.6rem)/1.05 Sora,sans-serif;letter-spacing:-.02em;color:var(--amb)}
+  body.light .stat b{color:var(--txt)}
+  .stat span{display:block;color:var(--mut);font-size:.93rem;margin-top:.5em}
+  .fonte{font-size:.86rem;color:var(--mut);margin-top:14px;max-width:80ch}
+  /* par antes/depois e quadros */
+  .par{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+  @media(max-width:600px){.par{grid-template-columns:1fr}}
+  .quadro{margin:0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;min-width:0}
+  .quadro img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+  .quadro figcaption{padding:12px 16px;font-size:.92rem;color:var(--mut)}
+  .quadro figcaption b{color:var(--txt);font-family:Sora}
+  .ficha{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .ficha span{border:1px solid var(--line);background:var(--tint);border-radius:999px;padding:.15em .7em;font-size:.8rem;color:var(--txt);font-family:Sora;font-weight:600}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:18px}
+  .flow span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;font-size:.85rem;font-family:Sora;font-weight:600}
+  .flow .arr{color:var(--amb);border:none;background:none;padding:0 .1em}
+  /* prova */
+  .prova{background:var(--card);border:1px solid var(--amb);border-radius:16px;padding:26px 26px 22px;margin-top:6px}
+  body.light .prova{border-color:#EAB308}
+  .tl{list-style:none;margin:0;padding:0;counter-reset:t}
+  .tl li{position:relative;padding:0 0 18px 48px;counter-increment:t}
+  .tl li::before{content:counter(t);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:10px;background:var(--fill);color:#1a1206;font:800 .95rem/32px Sora,sans-serif;text-align:center}
+  .tl li::after{content:"";position:absolute;left:15px;top:36px;bottom:4px;width:2px;background:var(--line)}
+  .tl li:last-child::after{display:none}
+  .tl b{font-family:Sora}
+  /* demo em vídeo */
+  .demo video,.demo .demo-poster{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:#000}
+  .demo .demo-poster{display:none}
+  @media (prefers-reduced-motion: reduce){.demo video{display:none}.demo .demo-poster{display:block}}
+  .tag{display:inline-block;font-size:.72rem;font-family:Sora;font-weight:600;border-radius:999px;padding:.1em .6em;margin-bottom:.5em;background:var(--tint);color:var(--txt);border:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top"><span class="emoji">🎬</span> Filme em código</a>
+  <span class="sep">|</span>
+  <span class="clubpro">
+    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <span class="sep">-</span>
+    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+  </span>
+  <div class="links">
+    <a class="sec" href="#explicado">O ganho</a>
+    <a class="sec" href="#dia">No seu dia</a>
+    <a class="sec opt" href="#como">Como funciona</a>
+    <a class="sec" href="#comecar">Como começar</a>
+    <a class="sec" href="#prova">A prova</a>
+    <a class="sec opt" href="#referencias">Ferramentas</a>
+    <span class="lang"><a class="on" href="./">PT</a><a href="en/">EN</a><a href="es/">ES</a></span>
+    <button class="tgl" id="themeToggle" aria-label="Alternar tema" title="Alternar tema">🌙</button>
+    <a class="btn" href="https://github.com/inematds/filme-em-codigo" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div>
+      <span class="chip">Método: um motor por estilo · kit grátis</span>
+      <h1>Troque a roupa e o lugar da sua personagem <span class="amb">sem a IA mudar o rosto dela</span></h1>
+      <p class="lead">Você pede para a IA trocar só a roupa, e ela devolve outra pessoa. Com o Claude desenhando cada quadro em código, você aprova a personagem uma vez e reaproveita em quantos filmes quiser. É isso que o método <strong>um motor por estilo</strong> faz.</p>
+      <div class="cta">
+        <a class="btn" href="#explicado">O que você ganha</a>
+        <a class="btn ghost" href="#comecar">Como começar</a>
+      </div>
+    </div>
+    <figure><img src="assets/banner.jpg" alt="Filme em código: mesmo rosto, outra cena. Um motor por estilo."></figure>
+  </div>
+</header>
+
+<main>
+<section id="resumo" class="resumo"><div class="wrap">
+  <span class="chip">Em uma frase</span>
+  <p>Cansou de pedir só uma roupa nova e receber outra personagem? Neste kit grátis, o Claude escreve um <strong>desenhista</strong> em código (é o que o kit chama de <strong>motor</strong>), que sabe desenhar um estilo, e uma <strong>ficha</strong> curta da cena: quem aparece, onde, que hora e o que faz. Para um filme novo, você troca a ficha e o desenhista fica, por isso o rosto não muda. Serve para quem quer fazer filme animado sem saber programar. Dá para começar no próprio site do Claude, sem instalar nada, ou no Claude Code (ou no Codex), num computador comum, sem placa de vídeo.</p>
+  <figure style="margin:22px 0 0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="assets/banner-grade.jpg" alt="Filme em código: a IA troca o rosto, um desenhista por estilo, a ficha com quem e onde, o mesmo pedido dá o mesmo vídeo, peça para a IA analisar, grátis no inema.club" loading="lazy" style="width:100%;display:block"></figure>
+</div></section>
+
+<section id="explicado"><div class="wrap">
+  <span class="chip">O ganho</span>
+  <h2>De sorteio a <span class="amb">receita repetível</span></h2>
+  <p class="sub">Um gerador de vídeo inventa tudo de novo a cada tentativa. Aqui, quem desenha é um programa que você aprovou, e ele desenha sempre do mesmo jeito.</p>
+  <div class="grid g2">
+    <div class="card"><h3>😩 Com um gerador de vídeo</h3><ul>
+      <li>Cada tentativa é um sorteio: você pede a mesma coisa e sai diferente.</li>
+      <li>O rosto da personagem muda de uma tomada para a outra.</li>
+      <li>O clipe é curto, e cada tentativa nova gasta crédito.</li>
+    </ul></div>
+    <div class="card"><h3>😌 Com um motor por estilo</h3><ul>
+      <li>A mesma ficha no mesmo desenhista dá o mesmo vídeo, quadro por quadro.</li>
+      <li>Você muda a roupa, o lugar ou a hora, e o rosto fica.</li>
+      <li>Sem limite de 30 segundos: filme longo são vários filmes curtos, juntados depois.</li>
+    </ul></div>
+  </div>
+  <div class="par">
+    <figure class="quadro"><img src="assets/lia-colina.jpg" alt="A personagem Lia numa colina verde, de dia, de uniforme, acenando" loading="lazy"><figcaption><b>Ficha 1</b><div class="ficha"><span>colina</span><span>dia</span><span>uniforme</span><span>acena</span></div></figcaption></figure>
+    <figure class="quadro"><img src="assets/lia-praia.jpg" alt="A mesma Lia numa praia ao entardecer, de vestido e chapéu, segurando o chapéu" loading="lazy"><figcaption><b>Ficha 2</b><div class="ficha"><span>praia</span><span>entardecer</span><span>vestido e chapéu</span><span>segura o chapéu</span></div></figcaption></figure>
+  </div>
+  <p class="fonte">A mesma Lia, com o mesmo rosto: o desenhista é o mesmo, só a ficha mudou. Os dois quadros saíram dos filmes de exemplo do kit.</p>
+  <div class="grid g3" style="margin-top:22px">
+    <div class="card"><h3>🎭 A mesma cara na série inteira</h3><p>A personagem que você aprovou volta igual em todo episódio, porque é o mesmo código que a desenha.</p></div>
+    <div class="card"><h3>✏️ Você muda só o que pedir</h3><p>"Mais devagar", "luz mais quente": a mudança vai para aquele ponto, e o resto do filme fica como estava.</p></div>
+    <div class="card"><h3>💻 Sem placa de vídeo</h3><p>O filme é montado no seu computador, só com o processador. Fazer o filme não gasta crédito de nenhum serviço.</p></div>
+  </div>
+</div></section>
+
+<section id="dia"><div class="wrap">
+  <span class="chip">No seu dia a dia</span>
+  <h2>Como isso muda o seu <span class="amb">dia</span></h2>
+  <p class="sub">Você não precisa programar para sentir a diferença. Veja três situações comuns de quem faz vídeo animado com IA.</p>
+  <div class="grid g3">
+    <div class="card"><h3>📺 Uma série com personagem fixa</h3><p><strong>Hoje:</strong> cada episódio a personagem sai com outra cara, e quem assiste estranha.</p><p><strong>Com o kit:</strong> o desenhista é o mesmo em todos. Episódio novo é uma ficha nova.</p></div>
+    <div class="card"><h3>🏖️ Mudar só o cenário</h3><p><strong>Hoje:</strong> você pede "agora na praia" e vem outra moça, outro cabelo, outro traço.</p><p><strong>Com o kit:</strong> a Lia foi da colina para a praia trocando só a ficha, como você viu acima.</p></div>
+    <div class="card"><h3>🎚️ Ajustar um detalhe</h3><p><strong>Hoje:</strong> pedir "mais devagar" é uma tentativa nova, e tudo muda junto.</p><p><strong>Com o kit:</strong> você diz o que quer mudar, e só aquilo muda.</p></div>
+  </div>
+  <div class="prova" style="margin-top:22px">
+    <ol class="tl">
+      <li><b>Primeira conversa · você escolhe o estilo</b><br><span class="mut">O Claude escreve o desenhista e mostra 3 quadros soltos para você olhar antes do filme inteiro.</span></li>
+      <li><b>Você aprova · o filme sai no seu computador</b><br><span class="mut">Um filme de 10 segundos ficou pronto em menos de um minuto no computador do teste.</span></li>
+      <li><b>Na semana seguinte · filme novo</b><br><span class="mut">Você abre outra conversa e pede só uma ficha nova. O desenhista já está pronto.</span></li>
+    </ol>
+  </div>
+</div></section>
+
+<section id="video"><div class="wrap">
+  <span class="chip">Vídeo</span>
+  <h2>Entenda em poucos minutos</h2>
+<!-- VIDEO: entra o explicavideo do projeto quando publicado -->
+  <figure class="quadro demo" style="margin-top:22px">
+    <video src="assets/lia-demo.mp4" poster="assets/lia-demo.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A Lia na colina, de uniforme, e depois na praia, de vestido e chapéu, com o mesmo rosto"></video>
+    <img class="demo-poster" src="assets/lia-demo.jpg" alt="A Lia na colina, de uniforme" loading="lazy">
+    <figcaption>A mesma Lia, dois filmes: só a ficha mudou. Demonstração de 8 segundos.</figcaption>
+  </figure>
+</div></section>
+
+<section id="como"><div class="wrap">
+  <span class="chip">Como funciona, sem jargão</span>
+  <h2>Um desenhista e <span class="amb">uma ficha</span></h2>
+  <p class="sub">Pense num desenhista de estúdio que só sabe um estilo, e muito bem. Você entrega a ele uma ficha curta, e ele desenha a cena. Ficha nova, cena nova, mesmo traço.</p>
+  <div class="grid g2">
+    <div class="card"><h3>✍️ O desenhista (o motor)</h3><p>O Claude escreve, uma vez, um programa que sabe desenhar um estilo: o rosto da personagem, o traço, as cores, o jeito de mexer. É a parte grande do trabalho.</p></div>
+    <div class="card"><h3>📋 A ficha</h3><p>Um texto pequeno com o que muda de um filme para o outro: quem, onde, que hora, que roupa, o que faz. No exemplo da Lia, a ficha é cerca de 70 vezes menor que o desenhista.</p></div>
+  </div>
+  <div class="flow"><span>ficha</span><span class="arr">→</span><span>desenhista</span><span class="arr">→</span><span>quadros</span><span class="arr">→</span><span>som</span><span class="arr">→</span><span>filme</span></div>
+  <p class="fonte">O som também é feito em código, no mesmo tempo da imagem: o passo, o vento e a música soam no instante em que aparecem.</p>
+
+  <h3 style="margin-top:42px;font-size:1.3rem">Os 4 jeitos de animar</h3>
+  <p class="sub" style="margin-bottom:1.2em">Cada jeito é um tipo de desenhista. Escolher o certo antes de pedir é metade do trabalho, e a IA ajuda você a escolher.</p>
+  <div class="grid g2">
+    <figure class="quadro"><img src="assets/raposa-lua.jpg" alt="Raposa de papel recortado andando sob a lua" loading="lazy"><figcaption><b>✂️ Recorte de papel</b><br>Formas planas em camadas, como papel cortado; o fundo anda menos que a frente. O mais simples de acertar.</figcaption></figure>
+    <figure class="quadro"><img src="assets/lia-colina.jpg" alt="Personagem de anime na frente de um cenário pintado" loading="lazy"><figcaption><b>🎭 Palco com cenário pintado</b><br>O cenário é pintado uma vez e a personagem atua na frente. Bom para personagem com rosto que volta em vários filmes.</figcaption></figure>
+    <figure class="quadro"><img src="assets/cabana-3d.jpg" alt="Maquete 3D de uma cabana na neve com fogueira e aurora" loading="lazy"><figcaption><b>🏠 Maquete com câmera</b><br>Um pequeno mundo 3D com luz e sombra, e a câmera passeando dentro. Bom para lugares e passeios.</figcaption></figure>
+    <figure class="quadro"><img src="assets/marionete.jpg" alt="Ilustração de uma moça pendurando roupa no varal, com peças que mexem" loading="lazy"><figcaption><b>🧵 Boneco de pano (marionete)</b><br>Um desenho pronto ganha vida mexendo só algumas partes: roupa no varal, cabelo, rabo do gato.</figcaption></figure>
+  </div>
+  <div class="card" style="margin-top:16px"><h3>📚 Receitas de estilo em português</h3><p>O kit traz 31 receitas no formato "mesmo estilo, sua ideia", divididas pelos 4 jeitos: 12 de recorte de papel, 6 de palco com cenário pintado, 10 de maquete com câmera e 3 de boneco de pano. Você escolhe o estilo, escreve a sua ideia em uma ou duas frases (quem, onde, o que acontece) e manda. Só os 4 estilos acima já têm desenhista pronto e testado; os outros são receitas para você pedir o seu.</p><p><a href="https://github.com/inematds/filme-em-codigo/tree/main/prompts/estilos" target="_blank" rel="noopener">Ver as 31 receitas</a></p></div>
+
+  <h3 style="margin-top:42px;font-size:1.3rem">O que o método não promete</h3>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card"><h3>🚫 Não sai bem</h3><ul>
+      <li>Pessoa real ou cara de filmagem: o código desenha formas, não pele nem tecido de verdade.</li>
+      <li>Rosto de ator ou rosto humano realista. Rosto estilizado, de olhos grandes e poucas linhas, funciona.</li>
+      <li>Luta, dança ou esporte: cada pose precisa ser ensinada ao desenhista.</li>
+      <li>Boca sincronizada com fala.</li>
+    </ul></div>
+    <div class="card"><h3>🔀 O caminho híbrido</h3><p>Quando você quer acabamento de filmagem, o filme do código vira a <strong>planta</strong>: ele decide câmera, tempo e personagem, e um gerador de vídeo dá a textura por cima.</p><p>Você ganha acabamento e perde a garantia de sair igual toda vez. O gerador é pago, e o kit só explica esse caminho: ele não foi testado aqui.</p></div>
+  </div>
+  <div class="card" style="margin-top:16px"><h3>💰 Onde está o custo</h3><p>Fazer o filme no seu computador não gasta crédito. O custo de verdade é a <strong>conversa com o Claude</strong>, e ele depende do seu plano. Para gastar menos:</p><ul>
+    <li>Reaproveite o desenhista: criar é caro, trocar a ficha é barato.</li>
+    <li>Abra uma conversa nova para cada filme.</li>
+    <li>Peça menos rodadas de conferência em estilo simples.</li>
+    <li>Confira em rascunho pequeno e comece com filmes de 5 a 10 segundos.</li>
+  </ul></div>
+</div></section>
+
+<section id="comecar"><div class="wrap">
+  <span class="chip">Como começar</span>
+  <h2>Peça para a sua IA <span class="amb">analisar o kit</span></h2>
+  <p class="sub">Você não precisa instalar nada à mão nem entender os arquivos. A própria IA lê o kit, ouve a sua ideia e diz o que dá para fazer.</p>
+  <div class="card" style="margin-bottom:16px"><h3>0. Escolha por onde começar</h3>
+    <div class="grid g2" style="margin-top:12px">
+      <div><p><b>🌐 Sem terminal, no site do Claude</b></p><ul>
+        <li>No site ou no aplicativo do Claude, abra as Configurações e ligue a criação de arquivos e a execução de código.</li>
+        <li>Abra uma conversa nova.</li>
+        <li>Na página de receitas do kit, copie uma receita de estilo e o bloco de regras que está na mesma página. Troque [SUA IDEIA AQUI] pela sua ideia.</li>
+        <li>Cole tudo na conversa e baixe o MP4 que o Claude entregar.</li>
+      </ul><p style="margin-top:10px"><a href="https://github.com/inematds/filme-em-codigo/tree/main/prompts/estilos" target="_blank" rel="noopener">Abrir as receitas</a></p></div>
+      <div><p><b>💻 Com o Claude Code ou o Codex</b></p><p>O Claude Code é o Claude que trabalha numa pasta do seu computador: ele lê, cria e roda os arquivos do kit ali mesmo. Precisa de um plano pago do Claude e se baixa em <a href="https://claude.com/claude-code" target="_blank" rel="noopener">claude.com/claude-code</a>. O Codex é o equivalente da OpenAI. Por esse caminho, siga os passos 1 a 3 abaixo.</p></div>
+    </div>
+  </div>
+  <div class="grid g3">
+    <div class="card"><h3>1. Abra a sua IA</h3><p>O Claude Code, ou o Codex, aberto numa pasta do seu computador.</p></div>
+    <div class="card"><h3>2. Cole o pedido abaixo</h3><p>Troque a parte entre colchetes pela sua personagem. A IA lê o kit e explica em português simples, sem mudar nada ainda.</p></div>
+    <div class="card"><h3>3. Diga sim ao que fizer sentido</h3><p>Ela mostra o plano. Você aprova, ela prepara o kit e mostra os primeiros quadros.</p></div>
+  </div>
+  <div class="pedido" style="margin-top:20px;position:relative">
+<pre id="pedidoTxt" style="white-space:pre-wrap">Leia o kit "filme-em-codigo" em https://github.com/inematds/filme-em-codigo (a página de instruções técnicas, o README, explica tudo, inclusive a instalação).
+Quero um filme animado com esta personagem: [descreva quem é, onde está, que hora é e o que faz].
+Antes de fazer qualquer coisa, me responda em português simples:
+1. Qual dos 4 jeitos de animar combina com a minha ideia, e por quê?
+2. O que o meu computador precisa ter para fazer o filme?
+3. O que o método não vai conseguir fazer na minha ideia?
+Não instale nem crie nada ainda. Mostre o plano e espere eu dizer sim.</pre>
+    <button class="btn" id="copiarPedido" style="margin-top:10px">Copiar o pedido</button>
+  </div>
+  <div class="card" style="margin-top:16px"><h3>🛠️ É técnico e prefere instalar à mão?</h3><p>Os passos com os comandos, o que precisa estar instalado e os testes estão na página de instruções técnicas do kit, no GitHub (o site onde o kit fica guardado).</p><p><a class="btn ghost" href="https://github.com/inematds/filme-em-codigo#instalação-técnica" target="_blank" rel="noopener">Ver a instalação técnica</a></p></div>
+</div></section>
+
+<section id="prova"><div class="wrap">
+  <span class="chip">A prova</span>
+  <h2>Medimos de verdade, <span class="amb">sem placa de vídeo</span></h2>
+  <p class="sub">Os quatro filmes de exemplo do kit foram feitos neste computador e medidos um por um: 10 segundos de filme cada, na qualidade do YouTube (1080p).</p>
+  <div class="stats">
+    <div class="stat"><b>~25 s</b><span>para a Lia de 10 segundos ficar pronta, na qualidade do YouTube (1080p), só com o processador</span></div>
+    <div class="stat"><b>2 fichas</b><span>a Lia na colina e a Lia na praia: o mesmo desenhista, o mesmo rosto</span></div>
+    <div class="stat"><b>mesmos quadros</b><span>gerar o mesmo filme de novo deu os mesmos quadros, conferido pelo teste do kit</span></div>
+  </div>
+  <div class="grid g4" style="margin-top:22px">
+    <figure class="quadro"><img src="assets/raposa-lua.jpg" alt="A raposa de papel" loading="lazy"><figcaption><b>A raposa de papel</b><br>recorte de papel</figcaption></figure>
+    <figure class="quadro"><img src="assets/lia-praia.jpg" alt="A Lia na praia" loading="lazy"><figcaption><b>A Lia</b><br>estilo anime, cenário pintado</figcaption></figure>
+    <figure class="quadro"><img src="assets/cabana-3d.jpg" alt="A cabana na neve em 3D" loading="lazy"><figcaption><b>A cabana na neve</b><br>maquete 3D</figcaption></figure>
+    <figure class="quadro"><img src="assets/marionete.jpg" alt="A marionete do varal" loading="lazy"><figcaption><b>O dia de varal</b><br>marionete</figcaption></figure>
+  </div>
+  <div class="par">
+    <figure class="quadro"><img src="assets/raposa-lua.jpg" alt="Raposa de papel à noite, com lua" loading="lazy"><figcaption><b>Ficha 1</b> · noite, lua, pinheiros, vaga-lumes</figcaption></figure>
+    <figure class="quadro"><img src="assets/raposa-sol.jpg" alt="A mesma raposa de papel de manhã, com sol" loading="lazy"><figcaption><b>Ficha 2</b> · manhã, sol, árvores redondas</figcaption></figure>
+  </div>
+  <p class="fonte">Medido em 19/11/2026 num computador sem placa de vídeo: cada filme usou em média uns 3 núcleos do processador (a cena 3D pede mais, quase 11). Os quatro filmes ficaram prontos entre 25 e 45 segundos cada. Num computador mais simples leva mais tempo, e "mesmo filme, mesmos quadros" foi conferido no mesmo computador e no mesmo navegador.</p>
+</div></section>
+
+<section id="referencias"><div class="wrap">
+  <span class="chip">De onde vêm as peças</span>
+  <h2>As ferramentas <span class="amb">abertas por trás</span></h2>
+  <p class="sub">O kit se apoia em ferramentas gratuitas e abertas, feitas por comunidades. Duas delas trabalham dentro do kit; as outras seguem a mesma ideia e servem para ir além.</p>
+  <div class="grid g3">
+    <div class="card"><span class="tag">Usada no kit</span><h3>🧊 three.js</h3><p>Desenha mundos 3D dentro do navegador. É ela que monta a maquete da cabana na neve.</p><p style="margin-top:10px"><a href="https://github.com/mrdoob/three.js" target="_blank" rel="noopener">mrdoob/three.js no GitHub</a></p></div>
+    <div class="card"><span class="tag">Usada no kit</span><h3>🎞️ FFmpeg</h3><p>Junta os quadros e o som num arquivo de vídeo. É o último passo de todo filme do kit.</p><p style="margin-top:10px"><a href="https://github.com/FFmpeg/FFmpeg" target="_blank" rel="noopener">FFmpeg/FFmpeg no GitHub</a></p></div>
+    <div class="card"><span class="tag">Mesma ideia</span><h3>⚛️ Remotion</h3><p>Faz vídeo escrevendo páginas da internet: cada quadro é calculado pelo número dele, como no kit.</p><p style="margin-top:10px"><a href="https://github.com/remotion-dev/remotion" target="_blank" rel="noopener">remotion-dev/remotion no GitHub</a></p></div>
+    <div class="card"><span class="tag">Mesma ideia</span><h3>📐 Manim</h3><p>Anima formas e contas com precisão; nasceu para vídeos de matemática. Esta é a versão cuidada pela comunidade.</p><p style="margin-top:10px"><a href="https://github.com/ManimCommunity/manim" target="_blank" rel="noopener">ManimCommunity/manim no GitHub</a></p></div>
+    <div class="card"><span class="tag">Mesma ideia</span><h3>✏️ rough.js</h3><p>Dá ao desenho um traço com cara de feito à mão, com rabisco e hachura. Combina com o recorte de papel.</p><p style="margin-top:10px"><a href="https://github.com/rough-stuff/rough" target="_blank" rel="noopener">rough-stuff/rough no GitHub</a></p></div>
+    <div class="card"><span class="tag">Mesma ideia</span><h3>🎬 HyperFrames</h3><p>Transforma uma página da internet em vídeo, com linha do tempo e montagem prontas. Serve como alternativa à montagem do kit.</p><p style="margin-top:10px"><a href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener">heygen-com/hyperframes no GitHub</a></p></div>
+  </div>
+  <p class="fonte"><a href="https://github.com/inematds/filme-em-codigo/blob/main/REFERENCIAS.md" target="_blank" rel="noopener">Ver as 26 referências</a>, com o que cada uma faz e a licença de uso.</p>
+</div></section>
+
+<section id="irmaos"><div class="wrap">
+  <span class="chip">Kits irmãos</span>
+  <h2>Para ir <span class="amb">além</span></h2>
+  <p class="sub">Outros kits grátis do INEMA.CLUB que fazem vídeo com código.</p>
+  <div class="grid g3">
+    <div class="card"><h3>🎙️ video-codigo</h3><p>Vídeo feito em código com narração em voz local, e a imagem presa à palavra falada.</p><p><a href="https://inematds.github.io/video-codigo/guia/" target="_blank" rel="noopener">Abrir o guia</a></p></div>
+    <div class="card"><h3>⏱️ sincronia-em-codigo</h3><p>Imagem, contador e som andando juntos no mesmo relógio, e séries inteiras a partir de uma planilha.</p><p><a href="https://inematds.github.io/sincronia-em-codigo/guia/" target="_blank" rel="noopener">Abrir o guia</a></p></div>
+    <div class="card"><h3>🎨 estilo-em-skill</h3><p>O estilo de um vídeo de que você gostou vira uma receita que a IA reaproveita.</p><p><a href="https://inematds.github.io/estilo-em-skill/guia/" target="_blank" rel="noopener">Abrir o guia</a></p></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <span class="chip">Perguntas comuns</span>
+  <h2>Antes de você <span class="amb">começar</span></h2>
+  <div class="grid g2">
+    <div class="card"><h3>Preciso saber programar?</h3><p>Não. Você descreve a personagem e a cena, olha os quadros que a IA mostra e diz o que mudar. Quem escreve o código é o Claude.</p></div>
+    <div class="card"><h3>Preciso de placa de vídeo?</h3><p>Não. Os exemplos foram feitos só com o processador. O 3D é o mais lento, e mesmo assim o filme de 10 segundos saiu em menos de um minuto no computador do teste.</p></div>
+    <div class="card"><h3>Quanto custa?</h3><p>O kit e este guia são grátis. Fazer o filme no seu computador não gasta crédito. O que custa é a conversa com a IA que você já usa, e isso depende do seu plano.</p></div>
+    <div class="card"><h3>O filme pode ser longo?</h3><p>Pode. O jeito que funciona é fazer vários filmes curtos no mesmo desenhista e juntar depois. Pedir um filme longo de uma vez deixa a conversa cara e a IA perde o fio.</p></div>
+    <div class="card"><h3>Dá para usar um desenho meu?</h3><p>Dá, de dois jeitos. O pedido "com a sua referência" faz o Claude estudar a sua imagem e redesenhá-la em código, já em partes que mexem. O jeito "boneco de pano" usa um desenho em que essas partes (braço, cabelo, roupa) já vêm separadas; uma foto ou um JPG comum não basta, e quem separa as partes é o Claude, pelo pedido.</p></div>
+    <div class="card"><h3>Serve para gente de verdade?</h3><p>Não. O método é forte em estilo: papel, anime, maquete, marionete. Para cara de filmagem, use o caminho híbrido, com o filme do código como planta.</p></div>
+    <div class="card"><h3>Funciona com o Codex?</h3><p>O kit foi pensado para o Claude Code, mas o Codex também consegue ler o kit e dizer se ele serve para a sua ideia.</p></div>
+    <div class="card"><h3>Funciona no meu computador?</h3><p>Foi medido num computador só, sem placa de vídeo. Num computador mais simples o filme leva mais tempo. Windows e Mac não foram testados; a IA confere o que o seu precisa na análise.</p></div>
+  </div>
+  <p class="fonte" style="margin-top:22px;font-size:1rem">E você: <strong>qual personagem você colocaria numa série inteira com a mesma cara?</strong> O kit está grátis no inema.club, direto na internet.</p>
+</div></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="pill">Claude Code</div><div class="pill">Codex</div><div class="pill">sem placa de vídeo</div><div class="pill">código aberto: pode usar e modificar</div>
+    <p style="margin-top:18px">Filme em código · grátis no inema.club, direto na internet ·
+      <a href="https://github.com/inematds/filme-em-codigo">inematds/filme-em-codigo</a> ·
+      <a href="https://inema.club">INEMA.CLUB</a></p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var KEY='filme-em-codigo-theme';
+    var b=document.body, t=document.getElementById('themeToggle');
+    try{ if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; } }catch(e){}
+    t.addEventListener('click',function(){
+      var light=b.classList.toggle('light');
+      t.textContent=light?'☀️':'🌙';
+      try{ localStorage.setItem(KEY, light?'light':'dark'); }catch(e){}
+    });
+  })();
+  (function(){
+    if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.querySelectorAll('.demo video').forEach(function(v){ v.removeAttribute('autoplay'); v.preload='none'; try{v.pause();}catch(e){} });
+  })();
+  (function(){
+    var bt=document.getElementById('copiarPedido'), tx=document.getElementById('pedidoTxt');
+    if(!bt||!tx) return;
+    var orig=bt.textContent, ok='Copiado ✓';
+    bt.addEventListener('click',function(){
+      try{ navigator.clipboard.writeText(tx.textContent).then(function(){ bt.textContent=ok; setTimeout(function(){bt.textContent=orig;},2000); }); }catch(e){}
+    });
+  })();
+</script>
+</body>
+</html>

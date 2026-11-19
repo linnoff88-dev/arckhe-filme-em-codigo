@@ -1,0 +1,24 @@
+{
+  "titulo": "Lia vê o mar",
+  "assinatura": "mesmo motor · só a história mudou",
+  "duracao": 10,
+  "semente": 58,
+  "local": "praia",
+  "hora": "entardecer",
+  "acao": "segurar-chapeu",
+  "personagem": {
+    "nome": "Lia",
+    "cabelo": "#4b2e2a",
+    "olhos": "#3f7f8f",
+    "pele": "#ffdcc6",
+    "roupa": "vestido",
+    "corRoupa": "#f4f1ea",
+    "corDetalhe": "#2f8f9d",
+    "chapeu": true
+  },
+  "musica": {
+    "notas": ["A4", "C5", "E5", "A5", "G5", "E5", "D5", "C5", "D5", "F5", "A5", "C6", "A5", "G5", "E5", "A5"],
+    "acordes": [["A2", "E3", "C4"], ["F2", "C3", "A3"], ["C3", "G3", "E4"], ["G2", "D3", "B3"]],
+    "passo": 0.5
+  }
+}

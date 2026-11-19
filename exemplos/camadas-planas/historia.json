@@ -1,0 +1,25 @@
+{
+  "titulo": "A raposa e a lua",
+  "assinatura": "recorte de papel · feito em código",
+  "duracao": 10,
+  "semente": 12,
+  "posesPorSegundo": 12,
+  "astro": "lua",
+  "arvores": "pinheiro",
+  "vagalumes": 46,
+  "paleta": {
+    "ceu": ["#162447", "#2f5f96"],
+    "astro": "#fff3cf",
+    "camadas": ["#3b6593", "#2d5280", "#22416b", "#193256", "#0f2140"],
+    "bicho": "#e9783a",
+    "bichoEscuro": "#3b2620",
+    "claro": "#fff1dc",
+    "luz": "#ffe98a",
+    "letra": "#fff3cf"
+  },
+  "musica": {
+    "notas": ["D4", "F4", "A4", "C5", "D5", "A4", "F4", "E4", "D4", "A4", "D5", "F5"],
+    "baixo": ["D2", "Bb1", "F2", "C2"],
+    "passo": 0.5
+  }
+}

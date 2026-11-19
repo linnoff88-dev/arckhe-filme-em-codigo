@@ -1,0 +1,29 @@
+{
+  "titulo": "A cabana na neve",
+  "assinatura": "cena 3D · câmera dentro da cena · feito em código",
+  "duracao": 10,
+  "semente": 7,
+  "arvores": 280,
+  "neve": 2600,
+  "aurora": true,
+  "boneco": true,
+  "cores": {
+    "ceuAlto": "#040a1c",
+    "ceuBaixo": "#1d3260",
+    "neblina": "#172a52",
+    "neve": "#dbe7f6",
+    "arvore": "#2e7a5c",
+    "tronco": "#4a3528",
+    "cabana": "#6b4630",
+    "janela": "#ffcf7a",
+    "fogo": "#ff9a3c",
+    "lua": "#eef3ff",
+    "aurora": ["#3dffb0", "#39b8ff"]
+  },
+  "caminho": [[-7, 50], [3, 39], [-4, 29], [2, 21], [3.5, 14.5]],
+  "musica": {
+    "notas": ["A4", "E5", "C5", "E5", "B4", "E5", "G4", "D5", "A4", "E5", "C5", "A5", "G5", "E5", "C5", "E5"],
+    "baixo": ["A2", "F2", "C3", "E2"],
+    "passo": 0.5
+  }
+}

@@ -1,0 +1,15 @@
+node_modules/
+saida/
+meus/*/saida/
+quadros/
+frames/
+*.mp4
+!guia/assets/lia-demo.mp4
+*.mov
+*.webm
+*.wav
+*.png
+!guia/assets/*.png
+.DS_Store
+*.log
+!capa/capa.png

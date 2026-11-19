@@ -1,0 +1,24 @@
+{
+  "titulo": "Lia e o vento",
+  "assinatura": "fundo pintado · personagem de formas · feito em código",
+  "duracao": 10,
+  "semente": 21,
+  "local": "colina",
+  "hora": "dia",
+  "acao": "acenar",
+  "personagem": {
+    "nome": "Lia",
+    "cabelo": "#4b2e2a",
+    "olhos": "#3f7f8f",
+    "pele": "#ffdcc6",
+    "roupa": "uniforme",
+    "corRoupa": "#27457e",
+    "corDetalhe": "#e6483d",
+    "chapeu": false
+  },
+  "musica": {
+    "notas": ["E4", "G4", "C5", "D5", "E5", "D5", "C5", "G4", "A4", "C5", "E5", "G5", "E5", "D5", "C5", "E5"],
+    "acordes": [["C3", "G3", "E4"], ["A2", "E3", "C4"], ["F2", "C3", "A3"], ["G2", "D3", "B3"]],
+    "passo": 0.5
+  }
+}

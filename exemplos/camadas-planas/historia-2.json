@@ -1,0 +1,25 @@
+{
+  "titulo": "A raposa e o sol",
+  "assinatura": "mesmo motor · só a história mudou",
+  "duracao": 10,
+  "semente": 45,
+  "posesPorSegundo": 12,
+  "astro": "sol",
+  "arvores": "redonda",
+  "vagalumes": 0,
+  "paleta": {
+    "ceu": ["#f6a45c", "#ffe0a8"],
+    "astro": "#fffbe6",
+    "camadas": ["#e9a070", "#d07a5c", "#a85a52", "#7a4048", "#4a2a3a"],
+    "bicho": "#f08a3a",
+    "bichoEscuro": "#3b2620",
+    "claro": "#fff6e4",
+    "luz": "#fff2a8",
+    "letra": "#fffaf0"
+  },
+  "musica": {
+    "notas": ["G4", "B4", "D5", "E5", "G5", "E5", "D5", "B4", "A4", "C5", "E5", "G5"],
+    "baixo": ["G2", "E2", "C2", "D2"],
+    "passo": 0.5
+  }
+}
