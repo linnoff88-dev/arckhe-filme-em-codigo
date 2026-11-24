@@ -36,9 +36,9 @@ Faça um filme animado de 5 a 10 segundos, 16:9, sobre [SUA IDEIA AQUI].
 Estilo: voo de ficção científica desenhado por um único shader de campo de distância (SDF):
 o terreno, os arcos de pedra, a nave com o motor aceso e o planeta com anéis são todos
 fórmulas, percorridas raio a raio, calculadas em meia resolução. Depois, um acabamento de
-cinema: separar o que é muito claro, riscos horizontais de luz, brilho em volta das luzes,
+cARCKHÉ: separar o que é muito claro, riscos horizontais de luz, brilho em volta das luzes,
 raios de luz na tela, desfoque de profundidade com borrão radial de movimento, leve
-separação de cores nas bordas, grão e faixas pretas de cinema (2,39:1). Um movimento de
+separação de cores nas bordas, grão e faixas pretas de cARCKHÉ (2,39:1). Um movimento de
 câmera contínuo, que inclina nas curvas e termina numa revelação. Sombras verde-azuladas,
 luz laranja. Trilha sintetizada e som de motor.
 ```
@@ -140,7 +140,7 @@ trêmula, como pincelada; sombras frias, azul-violeta; e contornos de tinta azul
 borda de profundidade). Pinte céu e fundos em shader, com degradês e ruído: degradê em
 faixas, nuvens de dois tons, serras em camadas enevoadas. Acrescente névoa de distância e
 raios de luz na tela, vindos do sol. Personagens originais, de formas simples, que atuam de
-verdade (olham, param, reagem). Câmera com movimentos de cinema: grua, travelling,
+verdade (olham, param, reagem). Câmera com movimentos de cARCKHÉ: grua, travelling,
 aproximação lenta. Grão leve por cima.
 ```
 

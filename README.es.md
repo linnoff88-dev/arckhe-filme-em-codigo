@@ -2,7 +2,7 @@
 
 **🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
 
-[![Película en código: otra escena, mismo rostro](guia/assets/banner-es.jpg)](https://inematds.github.io/filme-em-codigo/guia/es/)
+[![Película en código: otra escena, mismo rostro](guia/assets/banner-es.jpg)](https://linnoff88-dev.github.io/
 
 **Cambia la ropa y el lugar de tu personaje sin que la IA le cambie el rostro.** El método se llama
 **un motor por estilo**: apruebas al personaje una vez y lo reutilizas en tantas películas como quieras.
@@ -10,7 +10,7 @@
 ## 📖 Guía
 
 Para entender qué hace el kit y cómo cambia tu día (sin parte técnica):
-**https://inematds.github.io/filme-em-codigo/guia/es/**
+**https://linnoff88-dev.github.io/
 
 ## Qué es
 
@@ -71,7 +71,7 @@ motor tiene cerca de 46 KB de código; cada historia tiene menos de 1 KB.
 Abre Claude Code o Codex en una carpeta de tu computadora y pega esto (cambia la parte entre corchetes):
 
 ```text
-Lee el kit "filme-em-codigo" en https://github.com/inematds/filme-em-codigo (el README lo explica todo, incluida la instalación).
+Lee el kit "filme-em-codigo" en https://github.com/linnoff88-dev/filme-em-codigo (el README lo explica todo, incluida la instalación).
 Quiero una película animada con este personaje: [describe quién es, dónde está, qué hora es y qué hace].
 Antes de hacer cualquier cosa, respóndeme en español sencillo:
 1. ¿Cuál de las 4 formas de animar combina con mi idea y por qué?
@@ -98,7 +98,7 @@ No hay `npm install`. three.js (para el ejemplo 3D) ya está en `vendor/three`.
 ### Empezar
 
 ```bash
-git clone https://github.com/inematds/filme-em-codigo.git
+git clone https://github.com/linnoff88-dev/filme-em-codigo.git
 cd filme-em-codigo
 
 # renderizar um exemplo (sai em saida/fundo-pintado/fundo-pintado.mp4)
@@ -236,13 +236,13 @@ Fotorrealismo, rostros humanos realistas, peleas, baile, habla con la boca sincr
 
 ## Kits relacionados
 
-- **video-codigo**: video en HTML/Canvas con voz local sincronizada con la palabra — https://inematds.github.io/video-codigo/guia/es/
-- **sincronia-em-codigo**: reloj único para imagen, contador y sonido; series a partir de una hoja de cálculo — https://inematds.github.io/sincronia-em-codigo/guia/es/
-- **estilo-em-skill**: el estilo de un video se convierte en una skill reutilizable — https://inematds.github.io/estilo-em-skill/guia/es/
+- **video-codigo**: video en HTML/Canvas con voz local sincronizada con la palabra — https://linnoff88-dev.github.io/
+- **sincronia-em-codigo**: reloj único para imagen, contador y sonido; series a partir de una hoja de cálculo — https://linnoff88-dev.github.io/
+- **estilo-em-skill**: el estilo de un video se convierte en una skill reutilizable — https://linnoff88-dev.github.io/
 
 Repositorios de código abierto que sirven para este método, revisados uno por uno: [REFERENCIAS.md](REFERENCIAS.md).
 
 ## Licencia
 
 MIT. Consulta [LICENSE](LICENSE). three.js en `vendor/three` tiene su propia licencia MIT (`vendor/three/LICENSE`).
-Contenido abierto y gratuito de INEMA.CLUB.
+Contenido abierto y gratuito de ARCKHÉ AI.

@@ -1,6 +1,6 @@
 # CLAUDE.md — filme-em-codigo
 
-Kit aberto do INEMA.CLUB: filme animado feito em código (página → quadros → som → MP4), sem
+Kit aberto do ARCKHÉ AI: filme animado feito em código (página → quadros → som → MP4), sem
 modelo de vídeo e sem placa de vídeo. Método: **um motor por estilo**. Público: quem não
 programa. Tudo em português do Brasil, simples e direto.
 
@@ -19,9 +19,9 @@ programa. Tudo em português do Brasil, simples e direto.
 - Sem crédito de fonte: o kit não cita vídeo, canal, autor nem patrocinador. Links de terceiros
   só para repositórios de código aberto, em `REFERENCIAS.md` (conferidos com `gh api`).
 - O kit não chama API de modelo nenhum. O caminho híbrido é só documentado.
-- README em três idiomas: PT é o original; EN e ES saem do tradutor central (`inema-traduz`).
+- README em três idiomas: PT é o original; EN e ES saem do tradutor central (`ARCKHÉ-traduz`).
   Mudou o README.md, refaça os outros dois.
-- Commits: autor `inematds <inematds@gmail.com>`. O guia (`guia/`) é feito à parte.
+- Commits: autor `linnoff88-dev <linnoff88-dev@gmail.com>`. O guia (`guia/`) é feito à parte.
 
 ## Self-learning
 

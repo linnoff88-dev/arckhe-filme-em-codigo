@@ -61,13 +61,13 @@ Este kit usa diretamente só três: **three.js** (dentro de `vendor/`), **FFmpeg
 | [blender/blender](https://github.com/blender/blender) | 3D com material, luz e esqueleto de verdade; a saída quando o 3D do navegador não basta | licença própria, ver o repositório | 19/11/2026 |
 | [ahujasid/mcp-for-blender](https://github.com/ahujasid/mcp-for-blender) | conector para um assistente de IA controlar o Blender (o endereço antigo `ahujasid/blender-mcp` leva a este) | MIT | 18/11/2026 |
 
-## Kits irmãos do INEMA
+## Kits irmãos do ARCKHÉ
 
 | Repositório | Para que serve | Licença | Último envio | Guia |
 |---|---|---|---|---|
-| [inematds/video-codigo](https://github.com/inematds/video-codigo) | vídeo em HTML/Canvas com voz local presa à palavra | sem licença declarada no GitHub | 07/11/2026 | https://inematds.github.io/video-codigo/guia/ |
-| [inematds/sincronia-em-codigo](https://github.com/inematds/sincronia-em-codigo) | relógio único para imagem, contador e som; série por planilha | MIT | 14/11/2026 | https://inematds.github.io/sincronia-em-codigo/guia/ |
-| [inematds/estilo-em-skill](https://github.com/inematds/estilo-em-skill) | o estilo de um vídeo vira uma skill reutilizável | MIT | 13/11/2026 | https://inematds.github.io/estilo-em-skill/guia/ |
+| [linnoff88-dev/video-codigo](https://github.com/linnoff88-dev/video-codigo) | vídeo em HTML/Canvas com voz local presa à palavra | sem licença declarada no GitHub | 07/11/2026 | https://linnoff88-dev.github.io/ |
+| [linnoff88-dev/sincronia-em-codigo](https://github.com/linnoff88-dev/sincronia-em-codigo) | relógio único para imagem, contador e som; série por planilha | MIT | 14/11/2026 | https://linnoff88-dev.github.io/ |
+| [linnoff88-dev/estilo-em-skill](https://github.com/linnoff88-dev/estilo-em-skill) | o estilo de um vídeo vira uma skill reutilizável | MIT | 13/11/2026 | https://linnoff88-dev.github.io/ |
 
 ## Como conferir de novo
 

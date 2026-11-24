@@ -1,4 +1,4 @@
-﻿# filme-em-codigo â€” um motor por estilo
+# filme-em-codigo â€” um motor por estilo
 
 <div align="center">
   <img src="capa/logo.svg" alt="Arckhé AI" height="48" />
@@ -8,7 +8,7 @@
 
 **ðŸ‡§ðŸ‡· [PortuguÃªs](README.md) Â· ðŸ‡ºðŸ‡¸ [English](README.en.md) Â· ðŸ‡ªðŸ‡¸ [EspaÃ±ol](README.es.md)**
 
-[![Filme em cÃ³digo: outra cena, mesmo rosto](guia/assets/banner.jpg)](https://inematds.github.io/filme-em-codigo/guia/)
+[![Filme em cÃ³digo: outra cena, mesmo rosto](guia/assets/banner.jpg)](https://linnoff88-dev.github.io/
 
 **Troque a roupa e o lugar da sua personagem sem a IA mudar o rosto dela.** O mÃ©todo se chama
 **um motor por estilo**: vocÃª aprova a personagem uma vez e reaproveita em quantos filmes quiser.
@@ -16,7 +16,7 @@
 ## ðŸ“– Guia
 
 Para entender o que o kit faz e como ele muda o seu dia (sem parte tÃ©cnica):
-**https://inematds.github.io/filme-em-codigo/guia/**
+**https://linnoff88-dev.github.io/
 
 ## O que Ã©
 
@@ -75,7 +75,7 @@ motor tem cerca de 46 KB de cÃ³digo; cada histÃ³ria tem menos de 1 KB.
 Abra o Claude Code, ou o Codex, numa pasta do seu computador e cole (troque a parte entre colchetes):
 
 ```text
-Leia o kit "filme-em-codigo" em https://github.com/inematds/filme-em-codigo (o README explica tudo, inclusive a instalaÃ§Ã£o).
+Leia o kit "filme-em-codigo" em https://github.com/linnoff88-dev/filme-em-codigo (o README explica tudo, inclusive a instalaÃ§Ã£o).
 Quero um filme animado com esta personagem: [descreva quem Ã©, onde estÃ¡, que hora Ã© e o que faz].
 Antes de fazer qualquer coisa, me responda em portuguÃªs simples:
 1. Qual dos 4 jeitos de animar combina com a minha ideia, e por quÃª?
@@ -102,7 +102,7 @@ NÃ£o tem `npm install`. A three.js (para o exemplo 3D) jÃ¡ estÃ¡ em `vendo
 ### ComeÃ§ar
 
 ```bash
-git clone https://github.com/inematds/filme-em-codigo.git
+git clone https://github.com/linnoff88-dev/filme-em-codigo.git
 cd filme-em-codigo
 
 # renderizar um exemplo (sai em saida/fundo-pintado/fundo-pintado.mp4)
@@ -240,16 +240,16 @@ Fotorrealismo, rosto humano realista, luta, danÃ§a, fala com boca sincronizada
 
 ## Kits irmÃ£os
 
-- **video-codigo**: vÃ­deo em HTML/Canvas com voz local presa Ã  palavra â€” https://inematds.github.io/video-codigo/guia/
-- **sincronia-em-codigo**: relÃ³gio Ãºnico para imagem, contador e som; sÃ©ries por planilha â€” https://inematds.github.io/sincronia-em-codigo/guia/
-- **estilo-em-skill**: o estilo de um vÃ­deo vira uma skill reutilizÃ¡vel â€” https://inematds.github.io/estilo-em-skill/guia/
+- **video-codigo**: vÃ­deo em HTML/Canvas com voz local presa Ã  palavra â€” https://linnoff88-dev.github.io/
+- **sincronia-em-codigo**: relÃ³gio Ãºnico para imagem, contador e som; sÃ©ries por planilha â€” https://linnoff88-dev.github.io/
+- **estilo-em-skill**: o estilo de um vÃ­deo vira uma skill reutilizÃ¡vel â€” https://linnoff88-dev.github.io/
 
 RepositÃ³rios de cÃ³digo aberto que servem a este mÃ©todo, conferidos um a um: [REFERENCIAS.md](REFERENCIAS.md).
 
 ## LicenÃ§a
 
 MIT. Veja [LICENSE](LICENSE). A three.js em `vendor/three` tem licenÃ§a MIT prÃ³pria (`vendor/three/LICENSE`).
-ConteÃºdo aberto e gratuito do INEMA.CLUB.
+ConteÃºdo aberto e gratuito do ARCKHÉ AI.
 
 ---
 
