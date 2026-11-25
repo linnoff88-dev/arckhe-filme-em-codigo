@@ -75,7 +75,7 @@
       g.strokeStyle = r() < 0.6 ? 'rgba(255,255,255,0.016)' : cor(pal.ceu[0], pal.ceu[1], 0.5, 0.016); g.lineWidth = 14 + r() * 30; g.lineCap = 'round';
       g.beginPath(); g.moveTo(x, y); g.lineTo(x + w, y + (r() - 0.5) * 14); g.stroke();
     }
-    if (pal.sol) { // sol baixo e o clarão em volta
+    if (pal.sol) { // sol baixo e o clarêo em volta
       const s = pal.sol;
       for (const [raio, a] of [[620, 0.30], [330, 0.38], [150, 0.6]]) {
         const gs = g.createRadialGradient(s.x, s.y, 0, s.x, s.y, raio); gs.addColorStop(0, cor(pal.luz, pal.luz, 0, a)); gs.addColorStop(1, cor(pal.luz, pal.luz, 0, 0));
@@ -125,7 +125,7 @@
       g.lineTo(X1, Y1); g.closePath(); g.fill();
       const gw = g.createLinearGradient(0, 770, 0, 880); gw.addColorStop(0, cor(pal.areia[1], pal.mar[2], 0.5, 0.55)); gw.addColorStop(1, cor(pal.areia[1], pal.mar[2], 0.5, 0)); // areia molhada
       g.fillStyle = gw; g.beginPath(); g.moveTo(X0, 900); for (let x = X0; x <= X1; x += 16) g.lineTo(x, margemMar(x)); g.lineTo(X1, 900); g.closePath(); g.fill();
-      for (let i = 0; i < 9000; i++) { // grãos e manchas da areia
+      for (let i = 0; i < 9000; i++) { // grêos e manchas da areia
         const x = X0 + r() * (X1 - X0), y = margemMar(x) + 16 + r() * (Y1 - margemMar(x)), prof = (y - 760) / 380;
         g.fillStyle = r() < 0.5 ? cor(pal.areia[0], '#ffffff', 0.5, 0.20) : cor(pal.areia[1], '#402030', 0.5, 0.16);
         g.fillRect(x, y, 2 + prof * 5 * r(), 1.2 + prof * 2 * r());
@@ -188,7 +188,7 @@
         g.strokeStyle = cor(tom < 0.5 ? pal.capim[0] : pal.capim[1], tom < 0.25 ? '#f6ffb0' : pal.capim[2], r() * 0.8, 0.5 + 0.4 * r());
         g.lineWidth = 1.4 + prof * 2.6; g.beginPath(); g.moveTo(x, y); g.quadraticCurveTo(x - len * 0.1, y - len * 0.6, x - len * (0.25 + 0.4 * r()), y - len); g.stroke();
       }
-      for (let i = 0; i < 520; i++) { // beirada do morro: tufinhos, para a linha não ficar reta
+      for (let i = 0; i < 520; i++) { // beirada do morro: tufinhos, para a linha nêo ficar reta
         const x = X0 + r() * (X1 - X0), y = chaoY(x) + 3, len = 8 + r() * 14;
         g.strokeStyle = cor(pal.capim[0], pal.capim[1], r(), 0.95); g.lineWidth = 2.2; g.beginPath(); g.moveTo(x, y); g.lineTo(x - len * 0.4, y - len); g.stroke();
       }
@@ -210,7 +210,7 @@
     g.fillStyle = gn; g.fillRect(X0, horizonte - 130, X1 - X0, 220);
     g.fillStyle = cor(pal.ambiente[0], pal.ambiente[0], 0, pal.ambiente[1] * 0.6); g.fillRect(X0, Y0, X1 - X0, Y1 - Y0);
 
-    // ----- grão do papel: o quadro inteiro ganha a textura de tinta sobre papel -----
+    // ----- grêo do papel: o quadro inteiro ganha a textura de tinta sobre papel -----
     {
       const gr = document.createElement('canvas'); gr.width = tela.width; gr.height = tela.height;
       const gc2 = gr.getContext('2d'), im = gc2.createImageData(gr.width, gr.height), d = im.data, rg = sorteio(semente + 77);

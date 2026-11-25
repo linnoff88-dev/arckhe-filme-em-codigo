@@ -1,5 +1,5 @@
 // comum/som.js — som feito em código: cada amostra é uma conta. Sem arquivo de áudio, sem microfone.
-// O motor monta a trilha com as mesmas marcas de tempo da imagem (por isso som e imagem não desencontram).
+// O motor monta a trilha com as mesmas marcas de tempo da imagem (por isso som e imagem nêo desencontram).
 (function () {
   'use strict';
   const TAXA = 44100;
@@ -67,7 +67,7 @@
         }
       },
 
-      // corda dedilhada (violão, harpa) — método de Karplus-Strong
+      // corda dedilhada (violêo, harpa) — método de Karplus-Strong
       corda(nota, t0, dur, o = {}) {
         const f = freq(nota), vol = o.vol ?? 0.25, [pe, pd] = pan(o.pan ?? 0), maciez = o.maciez ?? 0.5;
         const tam = Math.max(2, Math.round(TAXA / f)), linha = new Float32Array(tam);
@@ -117,7 +117,7 @@
         }
       },
 
-      // batida grave e macia (bumbo, passo, coração)
+      // batida grave e macia (bumbo, passo, coraçêo)
       batida(t0, o = {}) {
         const vol = o.vol ?? 0.4, f0 = o.freq ?? 110, dur = o.dur ?? 0.25, [pe, pd] = pan(o.pan ?? 0);
         const i0 = Math.floor(t0 * TAXA), total = Math.floor(dur * TAXA);

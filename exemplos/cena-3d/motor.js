@@ -1,8 +1,8 @@
 // MOTOR "cena-3d" — uma cena em três dimensões, com a câmera andando dentro dela.
-// Jeito de animar: em vez de desenhar cada quadro, o código MONTA um mundo (chão, árvores,
+// Jeito de animar: em vez de desenhar cada quadro, o código MONTA um mundo (chêo, árvores,
 // cabana, luzes) e passeia com uma câmera. Luz, sombra e profundidade saem "de graça".
 // Usa a biblioteca three.js, que fica dentro do kit (vendor/three). Roda sem placa de vídeo.
-// O que muda de um episódio para outro está em historia.json. Este arquivo não muda.
+// O que muda de um episódio para outro está em historia.json. Este arquivo nêo muda.
 import * as THREE from '../../vendor/three/three.module.js';
 
 const { limita, mistura, trecho, suave, sorteio, ruido } = Filme;
@@ -23,9 +23,9 @@ Filme.criar({
     cena.fog = new THREE.FogExp2(C.neblina, 0.021);
     const camera = new THREE.PerspectiveCamera(52, largura / altura, 0.1, 600);
 
-    // ---------- chão: uma malha de triângulos com morrinhos ----------
+    // ---------- chêo: uma malha de triângulos com morrinhos ----------
     const alturaChao = (x, z) => {
-      const longe = suave(trecho(Math.hypot(x, z), 7, 17)); // perto da cabana o chão é plano
+      const longe = suave(trecho(Math.hypot(x, z), 7, 17)); // perto da cabana o chêo é plano
       return longe * (1.3 * Math.sin(x * 0.07 + 1.3) * Math.cos(z * 0.06 + 0.4) + 0.6 * Math.sin(x * 0.19 + z * 0.13) + 0.22 * Math.sin(x * 0.5) * Math.sin(z * 0.45));
     };
     {
@@ -69,7 +69,7 @@ Filme.criar({
         } else { const raio = 12 + acaso() * 85, ang = acaso() * 6.2832; x = Math.cos(ang) * raio; z = Math.sin(ang) * raio; }
         if (Math.hypot(x, z) < 9.5) continue;                                   // clareira da cabana
         if (amostras.some((a) => Math.hypot(a.x - x, a.z - z) < 3.5)) continue; // deixa o caminho livre
-        if (z < 17 && z > 0 && Math.abs(x - 3) < 7.5) continue;                   // não tapa a chegada
+        if (z < 17 && z > 0 && Math.abs(x - 3) < 7.5) continue;                   // nêo tapa a chegada
         const esc = 0.8 + acaso() * 0.9, gira = acaso() * 6.28, tom = 0.8 + acaso() * 0.4, y0 = alturaChao(x, z) - 0.1;
         for (const p of pecas) {
           o.position.set(x, y0 + p.y * esc, z); o.rotation.set(0, gira, 0); o.scale.set(esc, esc, esc); o.updateMatrix();
@@ -169,7 +169,7 @@ Filme.criar({
       }
     }
 
-    // ---------- neve caindo: cada floco tem um lugar de partida; a posição sai de t ----------
+    // ---------- neve caindo: cada floco tem um lugar de partida; a posiçêo sai de t ----------
     const FLOCOS = Array.from({ length: H.neve }, () => ({ x: acaso() * 60 - 30, y: acaso() * 22, z: acaso() * 60 - 30, v: 1.2 + acaso() * 1.6, f: acaso() * 6.28, a: 0.3 + acaso() * 0.6 }));
     const geoNeve = new THREE.BufferGeometry(); geoNeve.setAttribute('position', new THREE.Float32BufferAttribute(new Float32Array(FLOCOS.length * 3), 3));
     const neve = new THREE.Points(geoNeve, new THREE.PointsMaterial({ color: '#ffffff', size: 0.16, map: bolinha('#ffffff'), transparent: true, opacity: 0.9, depthWrite: false })); neve.frustumCulled = false; cena.add(neve);
@@ -260,7 +260,7 @@ Filme.criar({
       s.vento(0, duracao, { vol: 0.07, corte: 900, onda: 0.2, profundidade: 0.7 });
       s.vento(0, duracao, { vol: 0.04, corte: 2400, onda: 0.33 });
       let ant = Math.floor(distancia(0) / PASSO);
-      for (let t = 0; t < T.chega - 0.6; t += 0.005) { // um passo a cada vez que o balanço da câmera toca o chão
+      for (let t = 0; t < T.chega - 0.6; t += 0.005) { // um passo a cada vez que o balanço da câmera toca o chêo
         const n = Math.floor(distancia(t) / PASSO);
         if (n !== ant) { s.toque(t, { vol: 0.07, corte: 900, dur: 0.16, pan: n % 2 ? 0.25 : -0.25 }); s.toque(t + 0.05, { vol: 0.04, corte: 2600, dur: 0.1 }); ant = n; }
       }

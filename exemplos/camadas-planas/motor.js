@@ -1,7 +1,7 @@
 // MOTOR "camadas-planas" — recorte de papel.
 // Jeito de animar: formas planas (como papel cortado) em camadas. As camadas do fundo andam
 // devagar e as da frente andam rápido quando a câmera se move (isso é o "parallax").
-// O que muda de um episódio para outro está em historia.json. Este arquivo não muda.
+// O que muda de um episódio para outro está em historia.json. Este arquivo nêo muda.
 (function () {
   'use strict';
   const { limita, mistura, trecho, suave, saiDevagar, sorteio, ruido, cor } = Filme;
@@ -42,7 +42,7 @@
         for (let n = 0; n < cam.arvores; n++) {
           cam.lista.push({ x: -400 + acaso() * 3600, h: cam.alturaArv * (0.65 + 0.6 * acaso()), fase: acaso() * 6.28, larg: 0.8 + 0.4 * acaso() });
         }
-        // árvores da frente: lugar escolhido à mão para emoldurar a cena sem tapar o bicho
+        // árvores da frente: lugar escolhido à mêo para emoldurar a cena sem tapar o bicho
         for (const x of cam.fixas || []) cam.lista.push({ x, h: cam.alturaArv * (0.8 + 0.4 * acaso()), fase: acaso() * 6.28, larg: 0.95 });
         cam.lista.sort((a, b) => a.x - b.x);
       });
@@ -60,7 +60,7 @@
         fase: acaso() * 6.28, pisca: 0.5 + acaso() * 1.4, nasce: 2.2 + acaso() * 4.5, r: 2.5 + acaso() * 3, fator: 0.5 + acaso() * 0.7,
       }));
 
-      // grão do papel: pintado uma vez só (papel não treme)
+      // grêo do papel: pintado uma vez só (papel nêo treme)
       const papel = document.createElement('canvas'); papel.width = tela.width; papel.height = tela.height;
       (function () {
         const pc = papel.getContext('2d'), img = pc.createImageData(papel.width, papel.height), d = img.data, r = sorteio(99);
@@ -73,7 +73,7 @@
       const xInicio = -230, xFim = 930 + 430 * CAMADAS[CHAO].fator;
       const progresso = (t) => { const u = trecho(t, T.andaDe, T.andaAte); return u < 0.75 ? u * 1.14 : 0.855 + 0.145 * saiDevagar((u - 0.75) / 0.25); };
       const xBicho = (t) => mistura(xInicio, xFim, progresso(t));
-      const PASSO = 78; // tamanho do passo em pixels: a perna gira conforme a distância andada (o pé não escorrega)
+      const PASSO = 78; // tamanho do passo em pixels: a perna gira conforme a distância andada (o pé nêo escorrega)
       const fasePerna = (t) => (xBicho(t) - xInicio) / PASSO * Math.PI;
 
       function sombra(desfoque, dy, alfa) { c.shadowColor = `rgba(4,8,20,${alfa})`; c.shadowBlur = desfoque * k; c.shadowOffsetY = dy * k; c.shadowOffsetX = 0; }
@@ -254,7 +254,7 @@
       }
 
       function acabamento(t) {
-        // grão de papel por cima de tudo
+        // grêo de papel por cima de tudo
         c.save(); c.setTransform(1, 0, 0, 1, 0, 0); c.globalCompositeOperation = 'overlay'; c.globalAlpha = 0.22; c.drawImage(papel, 0, 0); c.restore();
         // cantos mais escuros
         const g = c.createRadialGradient(L / 2, A / 2, A * 0.45, L / 2, A / 2, A * 1.05);
@@ -265,7 +265,7 @@
         if (escuro > 0) { c.fillStyle = `rgba(4,7,16,${escuro})`; c.fillRect(0, 0, L, A); }
       }
 
-      // ---------- desenhar(t): monta o quadro do instante t. Não guarda nada de um quadro para o outro. ----------
+      // ---------- desenhar(t): monta o quadro do instante t. Nêo guarda nada de um quadro para o outro. ----------
       function desenhar(t) {
         c.setTransform(k, 0, 0, k, 0, 0); c.globalAlpha = 1; c.globalCompositeOperation = 'source-over'; semSombra();
         ceu(t); astro(t); nuvens(t);

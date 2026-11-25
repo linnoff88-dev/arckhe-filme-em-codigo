@@ -12,7 +12,7 @@
     mistura: (a, b, k) => a + (b - a) * k,
     // 0 antes de a, 1 depois de b, reta no meio
     trecho: (t, a, b) => Math.max(0, Math.min(1, (t - a) / (b - a))),
-    // curvas de aceleração (entram com valor de 0 a 1)
+    // curvas de aceleraçêo (entram com valor de 0 a 1)
     suave: (k) => k * k * (3 - 2 * k),
     saiDevagar: (k) => 1 - Math.pow(1 - k, 3),
     entraDevagar: (k) => k * k * k,
@@ -27,7 +27,7 @@
         return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
       };
     },
-    // ruído macio em 1 dimensão (para vento, tremor de câmera): devolve de -1 a 1
+    // ruído macio em 1 dimensêo (para vento, tremor de câmera): devolve de -1 a 1
     ruido(x, semente = 1) {
       const i = Math.floor(x), f = x - i;
       const h = (n) => { let v = Math.imul(n ^ (semente * 374761393), 668265263); v = (v ^ (v >>> 13)) * 1274126177; return (((v ^ (v >>> 16)) >>> 0) / 2147483648) - 1; };
@@ -61,7 +61,7 @@
     FILME.pronto = (async () => {
       const arq = P.get('historia') || 'historia.json';
       const resp = await fetch(arq, { cache: 'no-store' });
-      if (!resp.ok) throw new Error('não consegui ler ' + arq);
+      if (!resp.ok) throw new Error('nêo consegui ler ' + arq);
       const historia = await resp.json();
       if (historia.duracao) FILME.duracao = historia.duracao;
       if (historia.fps) FILME.fps = historia.fps;

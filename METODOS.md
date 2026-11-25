@@ -1,7 +1,7 @@
 # Os 4 jeitos de animar em código
 
 Todo filme deste kit sai do mesmo caminho (página → quadros → som → MP4). O que muda é **como a
-página desenha cada quadro**. São quatro jeitos. Escolher o jeito certo antes de pedir o motor é
+página desenha cada quadro**. Sêo quatro jeitos. Escolher o jeito certo antes de pedir o motor é
 metade do trabalho.
 
 ## Como escolher
@@ -10,7 +10,7 @@ metade do trabalho.
 |---|---|
 | visual de papel, gravura, giz, vetor; pouca coisa mexendo; rápido de fazer | **camadas-planas** |
 | uma personagem com rosto, que volta em vários filmes, num cenário bonito e parado | **fundo-pintado** |
-| a câmera passeando, luz e sombra de verdade, sensação de lugar | **cena-3d** |
+| a câmera passeando, luz e sombra de verdade, sensaçêo de lugar | **cena-3d** |
 | dar vida a um desenho que já existe, sem refazer | **marionete** |
 
 Na dúvida, comece por **camadas-planas**: é o mais simples de o Claude acertar.
@@ -30,13 +30,13 @@ vaga-lumes. Cada camada joga sombra na de trás.
 **O que mexe.** A câmera (de lado), o boneco (pernas, rabo, cabeça), pontos de luz, nuvens.
 
 **Truques que fazem diferença**
-- A perna gira conforme a **distância andada**, não conforme o tempo: assim o pé não escorrega.
+- A perna gira conforme a **distância andada**, nêo conforme o tempo: assim o pé nêo escorrega.
 - O boneco muda de pose 12 vezes por segundo (`posesPorSegundo` na história), como em
   stop-motion; a câmera continua lisa.
-- Grão de papel por cima de tudo, pintado uma vez (papel não treme).
+- Grêo de papel por cima de tudo, pintado uma vez (papel nêo treme).
 
 **Bom para:** recorte de papel, xilogravura, risografia, giz, vetor plano, colagem.
-**Fraco para:** personagem que vira o rosto, perspectiva que muda, cena com muita atuação.
+**Fraco para:** personagem que vira o rosto, perspectiva que muda, cena com muita atuaçêo.
 
 **O que troca na história:** título, paleta, astro (lua ou sol), tipo de árvore, vaga-lumes,
 semente, notas da música.
@@ -60,7 +60,7 @@ sorriso; capim da frente; pétalas; a onda na areia; a câmera chegando perto de
 - O fundo é pintado **uma vez** e guardado. Só ele levaria tempo; por quadro, o custo é da
   personagem.
 - A personagem é desenhada numa folha separada, recebe a **cor da luz da hora** (dia ou
-  entardecer) e só então é colada no fundo. É isso que a faz parecer estar naquele lugar.
+  entardecer) e só entêo é colada no fundo. É isso que a faz parecer estar naquele lugar.
 - Uma **rajada de vento** com começo e fim (em segundos) comanda cabelo, roupa, capim e o som.
 
 **Bom para:** personagem com rosto que se repete em vários filmes; estilo anime simples;
@@ -68,7 +68,7 @@ cenário rico.
 **Fraco para:** personagem andando pelo cenário, virando de costas, interagindo com objetos.
 Cada pose nova precisa ser ensinada ao motor.
 
-**O que troca na história:** lugar (`colina` ou `praia`), hora (`dia` ou `entardecer`), ação
+**O que troca na história:** lugar (`colina` ou `praia`), hora (`dia` ou `entardecer`), açêo
 (`acenar` ou `segurar-chapeu`), roupa, cores, chapéu, título, música. É o exemplo que prova o
 "um motor por estilo": veja `historia.json` e `historia-2.json`.
 
@@ -76,8 +76,8 @@ Cada pose nova precisa ser ensinada ao motor.
 
 ## 3. cena-3d
 
-**O que é.** Em vez de desenhar cada quadro, o código **monta um mundo** (chão, árvores, casa,
-luzes) e põe uma câmera dentro. Luz, sombra e perspectiva são calculadas pela biblioteca
+**O que é.** Em vez de desenhar cada quadro, o código **monta um mundo** (chêo, árvores, casa,
+luzes) e põe uma câmera dentro. Luz, sombra e perspectiva sêo calculadas pela biblioteca
 three.js, que vem dentro do kit (`vendor/three`).
 
 **No exemplo** ([exemplos/cena-3d](exemplos/cena-3d)): floresta de pinheiros de poucos
@@ -96,7 +96,7 @@ montanhas e aurora. A câmera anda por um caminho curvo, com balanço de passo, 
   e o que mais usou núcleos (veja a tabela do README).
 
 **Bom para:** passeio de câmera, maquete, miniatura, lugares.
-**Fraco para:** personagem que atua (precisaria de esqueleto e animação de corpo), materiais
+**Fraco para:** personagem que atua (precisaria de esqueleto e animaçêo de corpo), materiais
 realistas, efeitos pesados de câmera.
 
 **O que troca na história:** cores, número de árvores, quantidade de neve, aurora, boneco, o
@@ -106,9 +106,9 @@ caminho da câmera, título, música.
 
 ## 4. marionete
 
-**O que é.** Uma ilustração **pronta** recebe vida sem ser redesenhada. O motor separa as peças
+**O que é.** Uma ilustraçêo **pronta** recebe vida sem ser redesenhada. O motor separa as peças
 marcadas e entorta cada uma com uma malha de triângulos: presa na raiz, solta na ponta. Tudo o
-que não mexe fica exatamente como o desenho original.
+que nêo mexe fica exatamente como o desenho original.
 
 **No exemplo** ([exemplos/marionete](exemplos/marionete)): `ilustracao.svg` é um desenho do
 próprio kit (uma moça pendurando roupa no varal, debaixo de uma árvore). Os grupos com
@@ -120,16 +120,16 @@ capim, nuvens, fumaça.
 
 **Truques que fazem diferença**
 - A **placa**: o desenho sem as peças soltas. É ela que aparece atrás quando uma peça sai do
-  lugar. Se o seu desenho não tem o que está atrás do cabelo, vai aparecer um buraco.
+  lugar. Se o seu desenho nêo tem o que está atrás do cabelo, vai aparecer um buraco.
 - Cada peça tem um **atraso** diferente: o vento "passa" pelo varal, em vez de tudo balançar
   junto.
-- Os triângulos são desenhados um tiquinho maiores, para não aparecer risco na emenda.
+- Os triângulos sêo desenhados um tiquinho maiores, para nêo aparecer risco na emenda.
 
-**Bom para:** ilustração sua (ou de alguém que trabalha com você), capa que se mexe, retrato.
+**Bom para:** ilustraçêo sua (ou de alguém que trabalha com você), capa que se mexe, retrato.
 **Fraco para:** movimento grande (virar a cabeça, andar): a imagem estica e denuncia o truque.
 
-**O que troca na história:** quais peças mexem, força, velocidade, atraso, direção do vento, a
-rajada, e a própria ilustração (`"ilustracao": "outra.svg"`, com os mesmos nomes de peça).
+**O que troca na história:** quais peças mexem, força, velocidade, atraso, direçêo do vento, a
+rajada, e a própria ilustraçêo (`"ilustracao": "outra.svg"`, com os mesmos nomes de peça).
 
 ---
 
@@ -139,10 +139,10 @@ rajada, e a própria ilustração (`"ilustracao": "outra.svg"`, com os mesmos no
 |---|---|
 | `desenhar(t)` é conta pura | mesmo código = mesmo vídeo; e o render pode repartir os quadros entre vários navegadores |
 | sorteio com semente | o capim, as estrelas e a neve caem sempre no mesmo lugar |
-| história fora do motor | filme novo custa um arquivo pequeno, não um motor novo |
+| história fora do motor | filme novo custa um arquivo pequeno, nêo um motor novo |
 | um canvas só | o render lê o canvas direto, sem depender da tela |
 | som das mesmas marcas de tempo | passo, rajada e título soam no instante em que aparecem |
-| 3 quadros de prova antes do render | defeito aparece em segundos, não depois do filme inteiro |
+| 3 quadros de prova antes do render | defeito aparece em segundos, nêo depois do filme inteiro |
 
 ## Misturar jeitos
 
@@ -150,7 +150,7 @@ Pode. Os mais comuns:
 - **fundo-pintado + camadas-planas**: o fundo pintado em duas ou três camadas, para a câmera
   deslizar.
 - **cena-3d + camadas-planas**: desenhos planos em pé dentro de uma maquete 3D (estilo diorama).
-- **marionete + fundo-pintado**: personagem ilustrada à mão sobre cenário pintado em código.
+- **marionete + fundo-pintado**: personagem ilustrada à mêo sobre cenário pintado em código.
 
 Peça um jeito principal e diga o que vem do outro. Motor que mistura tudo fica difícil de
 reaproveitar.

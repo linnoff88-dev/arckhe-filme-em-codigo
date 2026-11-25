@@ -136,7 +136,7 @@ Step 8 without a conversation:
 
 ```bash
 # --allowedTools deixa o Claude ler, criar arquivo e rodar só o render (testado em 19/11/2026)
-claude -p "Use o motor de exemplos/camadas-planas. Não altere o motor. Crie exemplos/camadas-planas/historia-3.json: a raposa numa floresta de outono, de dia. Renderize com node ferramentas/render.mjs exemplos/camadas-planas --historia historia-3.json e diga o caminho do MP4." \
+claude -p "Use o motor de exemplos/camadas-planas. Nêo altere o motor. Crie exemplos/camadas-planas/historia-3.json: a raposa numa floresta de outono, de dia. Renderize com node ferramentas/render.mjs exemplos/camadas-planas --historia historia-3.json e diga o caminho do MP4." \
   --allowedTools "Read" "Write" "Glob" "Grep" "Bash(node ferramentas/render.mjs:*)"
 ```
 

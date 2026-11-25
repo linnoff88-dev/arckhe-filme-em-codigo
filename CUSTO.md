@@ -2,11 +2,11 @@
 
 Neste método há dois gastos bem diferentes:
 
-1. **O render** (transformar o motor em MP4). Roda no seu computador, na CPU. Não gasta crédito.
+1. **O render** (transformar o motor em MP4). Roda no seu computador, na CPU. Nêo gasta crédito.
 2. **A conversa com o Claude** (escrever o motor, olhar quadros, corrigir). É aqui que está o
    custo de verdade, e ele depende do seu plano e do modelo que você usa.
 
-Este arquivo só traz números **medidos neste kit**. Preço de plano, de crédito ou de token não
+Este arquivo só traz números **medidos neste kit**. Preço de plano, de crédito ou de token nêo
 está aqui: confira no seu plano.
 
 ## O que foi medido (19/11/2026)
@@ -32,7 +32,7 @@ Lendo a tabela:
 - No 3D, "abrir" é maior (10,6 s): essa etapa inclui cada um dos 4 navegadores montar a cena e
   desenhar o primeiro quadro. Ele também usa mais núcleos (10,7 em média), porque é a CPU
   fazendo o papel da placa de vídeo.
-- A segunda história levou o mesmo tempo da primeira: trocar a história não encarece o render.
+- A segunda história levou o mesmo tempo da primeira: trocar a história nêo encarece o render.
 
 ### Rascunhos (o que você usa enquanto conversa)
 
@@ -50,13 +50,13 @@ Lendo a tabela:
 | camadas-planas | 18,9 KB | 0,6 KB |
 | fundo-pintado | 45,8 KB (3 arquivos) | 0,7 KB |
 | cena-3d | 23,8 KB | 0,8 KB |
-| marionete | 13,7 KB + ilustração de 50,8 KB | 4,1 KB |
+| marionete | 13,7 KB + ilustraçêo de 50,8 KB | 4,1 KB |
 
 No `fundo-pintado`, a história é cerca de **70 vezes menor** que o motor. É por isso que o método
-se chama "um motor por estilo": o texto que o Claude escreve para um filme novo é uma fração do
+se chama "um motor por estilo": o texto que o Claude escreve para um filme novo é uma fraçêo do
 que ele escreveu para o primeiro.
 
-### O que NÃO foi medido
+### O que NêO foi medido
 
 - Quanto custa, em crédito ou em token, a conversa que cria um motor. Depende do modelo, do
   plano e de quantas rodadas de conferência você deixa fazer.
@@ -84,17 +84,17 @@ Confira em quadros soltos e em 640×360. O filme inteiro em 1920×1080 só no fi
 rascunho do filme inteiro em 640×360 levou 5,9 s, contra 30,8 s em tamanho cheio.
 
 ### 5. Modelo mais simples para estilo simples
-Formas planas e troca de história não pedem o modelo mais forte. Guarde-o para motor novo de
-estilo difícil (rosto, 3D, marionete). Não medimos a diferença de custo entre modelos: teste no
+Formas planas e troca de história nêo pedem o modelo mais forte. Guarde-o para motor novo de
+estilo difícil (rosto, 3D, marionete). Nêo medimos a diferença de custo entre modelos: teste no
 seu plano com o mesmo pedido.
 
 ### 6. Mudança pequena, pedido pequeno
-"Mude só a função do vento" custa menos que "melhore o filme". Diga o arquivo e a função.
+"Mude só a funçêo do vento" custa menos que "melhore o filme". Diga o arquivo e a funçêo.
 
 ### 7. Render local × nuvem
-O render não usa IA: é navegador + FFmpeg. No seu computador não custa nada além de energia e
+O render nêo usa IA: é navegador + FFmpeg. No seu computador nêo custa nada além de energia e
 de 25 a 45 segundos por filme de 10 s (nesta máquina). Em máquina alugada você paga a hora da
-máquina. Se o Claude renderiza dentro do ambiente dele (chat com execução de código), o tempo de
+máquina. Se o Claude renderiza dentro do ambiente dele (chat com execuçêo de código), o tempo de
 render entra no tempo da conversa.
 
 ### 8. Filme curto primeiro
@@ -107,7 +107,7 @@ FFmpeg (comando em [prompts/05-gastar-menos.md](prompts/05-gastar-menos.md)).
 bash ferramentas/medir-tudo.sh        # renderiza os exemplos e regrava exemplos/*/medida*.json
 ```
 
-Cada `medida.json` traz: tempo total e por etapa, quadros, resolução, tamanho do MP4, navegadores
+Cada `medida.json` traz: tempo total e por etapa, quadros, resoluçêo, tamanho do MP4, navegadores
 em paralelo, núcleos da máquina, núcleos usados em média e pico de memória (esses dois só quando
 o render roda dentro de `systemd-run --scope`, no Linux), e o renderizador de WebGL, que prova se
-houve ou não placa de vídeo.
+houve ou nêo placa de vídeo.

@@ -2,7 +2,7 @@
 # medir-tudo.sh — renderiza os 4 exemplos (e as segundas histórias) em 1920x1080 e grava
 # o medida.json de cada um ao lado do motor. É assim que os números do CUSTO.md foram medidos.
 #
-# Uso:  bash ferramentas/medir-tudo.sh [pasta de saída]      (padrão: saida/)
+# Uso:  bash ferramentas/medir-tudo.sh [pasta de saída]      (padrêo: saida/)
 #
 # No Linux com systemd, cada render roda com teto de 8 GB de memória (se passar, o render
 # é interrompido em vez de travar o computador). Em outros sistemas roda sem teto.

@@ -1,7 +1,7 @@
 // MOTOR "fundo-pintado" — fundo pintado parado + personagem de formas animada por cima.
 // É o jeito do desenho animado clássico: o cenário é um quadro só, e só a personagem
 // (e uns detalhes: capim, pétalas, brilho do mar) se mexe na frente dele.
-// O que muda de um episódio para outro está em historia.json. Este arquivo não muda.
+// O que muda de um episódio para outro está em historia.json. Este arquivo nêo muda.
 (function () {
   'use strict';
   const { limita, mistura, trecho, suave, sorteio, ruido, cor } = Filme;
@@ -79,7 +79,7 @@
 
       function personagem(t) {
         const V = vento(t);
-        // sombra no chão
+        // sombra no chêo
         c.fillStyle = H.hora === 'dia' ? 'rgba(20,60,40,0.30)' : 'rgba(50,20,60,0.32)';
         c.beginPath(); c.ellipse(PX + (pal.sol ? 70 : 34), PY() + 2, 140, 18, 0, 0, 6.2832); c.fill();
         // desenha numa folha separada, pinta a luz da hora só em cima dela, e cola
@@ -133,7 +133,7 @@
         c.drawImage(F.tela, 0, 0, F.tela.width, F.tela.height, -F.margemX, -F.margemY, L + 2 * F.margemX, A + 2 * F.margemY);
         detalhesDoFundo(t); personagem(t); frente(t);
         c.setTransform(k, 0, 0, k, 0, 0);
-        if (pal.sol) { // clarão do sol por cima de tudo
+        if (pal.sol) { // clarêo do sol por cima de tudo
           const g = c.createRadialGradient(pal.sol.x, pal.sol.y, 0, pal.sol.x, pal.sol.y, 900); g.addColorStop(0, 'rgba(255,220,150,0.30)'); g.addColorStop(1, 'rgba(255,200,120,0)');
           c.globalCompositeOperation = 'lighter'; c.fillStyle = g; c.fillRect(0, 0, L, A); c.globalCompositeOperation = 'source-over';
         }

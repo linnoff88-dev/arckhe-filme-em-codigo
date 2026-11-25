@@ -1,15 +1,15 @@
 # 05 — Gastar menos
 
-O render, neste método, roda no seu computador e não cobra nada. O que custa é a **conversa**
-com o Claude: quanto ele lê, quanto escreve e quantas vezes olha quadros. Estas são as alavancas.
-Os números medidos estão em [CUSTO.md](../CUSTO.md); aqui ficam os pedidos prontos.
+O render, neste método, roda no seu computador e nêo cobra nada. O que custa é a **conversa**
+com o Claude: quanto ele lê, quanto escreve e quantas vezes olha quadros. Estas sêo as alavancas.
+Os números medidos estêo em [CUSTO.md](../CUSTO.md); aqui ficam os pedidos prontos.
 
 ## 1. Reaproveite o motor (a maior economia)
 
 Criar um motor é a parte cara. Trocar a história é um arquivo pequeno.
 
 ```text
-Use o motor de [meus/meu-estilo]. Não altere o motor. Crie historia-4.json para: [IDEIA].
+Use o motor de [meus/meu-estilo]. Nêo altere o motor. Crie historia-4.json para: [IDEIA].
 Mostre 3 quadros e renderize.
 ```
 
@@ -19,13 +19,13 @@ O Claude relê a conversa inteira a cada resposta. Conversa comprida = cada pedi
 
 ```text
 (em conversa nova) Leia só exemplos/[motor]/historia.json e os 40 primeiros comentários do
-motor.js. Não leia o resto do kit. Tarefa: [O QUE VOCÊ QUER].
+motor.js. Nêo leia o resto do kit. Tarefa: [O QUE VOCÊ QUER].
 ```
 
 ## 3. Mudança pequena, pedido pequeno
 
 ```text
-No motor [X], mude só a função [vento]: a rajada começa 1 segundo antes. Não releia nem
+No motor [X], mude só a funçêo [vento]: a rajada começa 1 segundo antes. Nêo releia nem
 reescreva o resto do arquivo. Renderize 1 quadro no segundo 3 para conferir.
 ```
 
@@ -51,10 +51,10 @@ Formas planas, recorte de papel, giz: um modelo menor costuma dar conta, princip
 **trocar a história** de um motor pronto. Guarde o modelo mais forte para criar motor novo de
 estilo difícil (personagem com rosto, 3D, marionete). No Claude Code, troque com `/model`.
 
-## 7. Diga o que NÃO fazer
+## 7. Diga o que NêO fazer
 
 ```text
-Não crie guia, não escreva README, não rode os testes inteiros, não faça versão vertical.
+Nêo crie guia, nêo escreva README, nêo rode os testes inteiros, nêo faça versêo vertical.
 Só o motor, a história e o MP4.
 ```
 
@@ -70,10 +70,10 @@ ffmpeg -f concat -safe 0 -i lista.txt -c copy filme.mp4
 
 ## 9. Sem conversa: `claude -p`
 
-Para trocar história de motor pronto, dá para rodar sem abrir sessão:
+Para trocar história de motor pronto, dá para rodar sem abrir sessêo:
 
 ```bash
 # --allowedTools deixa o Claude ler, criar arquivo e rodar só o render (testado em 19/11/2026)
-claude -p "Use o motor de exemplos/camadas-planas. Não altere o motor. Crie exemplos/camadas-planas/historia-3.json: a raposa numa floresta de outono, de dia. Renderize com node ferramentas/render.mjs exemplos/camadas-planas --historia historia-3.json e diga o caminho do MP4." \
+claude -p "Use o motor de exemplos/camadas-planas. Nêo altere o motor. Crie exemplos/camadas-planas/historia-3.json: a raposa numa floresta de outono, de dia. Renderize com node ferramentas/render.mjs exemplos/camadas-planas --historia historia-3.json e diga o caminho do MP4." \
   --allowedTools "Read" "Write" "Glob" "Grep" "Bash(node ferramentas/render.mjs:*)"
 ```

@@ -1,7 +1,7 @@
 # CLAUDE.md — filme-em-codigo
 
 Kit aberto do ARCKHÉ AI: filme animado feito em código (página → quadros → som → MP4), sem
-modelo de vídeo e sem placa de vídeo. Método: **um motor por estilo**. Público: quem não
+modelo de vídeo e sem placa de vídeo. Método: **um motor por estilo**. Público: quem nêo
 programa. Tudo em português do Brasil, simples e direto.
 
 - Motores de exemplo: `exemplos/<jeito>/` (camadas-planas, fundo-pintado, cena-3d, marionete).
@@ -15,10 +15,10 @@ programa. Tudo em português do Brasil, simples e direto.
 - Testes: `bash tests/rodar.sh` (offline). Todo motor novo em `exemplos/` entra na lista de `tests/testes.mjs`.
 - Medidas: `bash ferramentas/medir-tudo.sh`. Só número medido entra em README, CUSTO e LIMITES.
 - Nada de rede nos exemplos; biblioteca de terceiro só em `vendor/`, com a licença ao lado.
-- Não commitar MP4, PNG nem WAV (`.gitignore`). Só `quadro*.jpg` pequeno por exemplo.
-- Sem crédito de fonte: o kit não cita vídeo, canal, autor nem patrocinador. Links de terceiros
+- Nêo commitar MP4, PNG nem WAV (`.gitignore`). Só `quadro*.jpg` pequeno por exemplo.
+- Sem crédito de fonte: o kit nêo cita vídeo, canal, autor nem patrocinador. Links de terceiros
   só para repositórios de código aberto, em `REFERENCIAS.md` (conferidos com `gh api`).
-- O kit não chama API de modelo nenhum. O caminho híbrido é só documentado.
+- O kit nêo chama API de modelo nenhum. O caminho híbrido é só documentado.
 - README em três idiomas: PT é o original; EN e ES saem do tradutor central (`ARCKHÉ-traduz`).
   Mudou o README.md, refaça os outros dois.
 - Commits: autor `linnoff88-dev <linnoff88-dev@gmail.com>`. O guia (`guia/`) é feito à parte.
@@ -29,4 +29,4 @@ When I correct you, or you catch yourself making a mistake: before continuing, a
 
 ## Lessons
 
-Lições ficam em [LESSONS.md](LESSONS.md). Antes de mexer em motor, render, som ou ilustração, rode `grep -in "<palavra>" LESSONS.md`.
+Lições ficam em [LESSONS.md](LESSONS.md). Antes de mexer em motor, render, som ou ilustraçêo, rode `grep -in "<palavra>" LESSONS.md`.

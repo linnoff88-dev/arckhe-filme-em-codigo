@@ -1,8 +1,8 @@
-// MOTOR "marionete" — uma ilustração pronta, mexida por pequenas áreas.
-// Jeito de animar: NADA é redesenhado. O motor lê uma ilustração (ilustracao.svg), separa
+// MOTOR "marionete" — uma ilustraçêo pronta, mexida por pequenas áreas.
+// Jeito de animar: NADA é redesenhado. O motor lê uma ilustraçêo (ilustracao.svg), separa
 // as peças marcadas (data-mexe) e entorta cada uma com uma malha de triângulos: presa na raiz,
 // solta na ponta. O resto do desenho fica exatamente como o artista fez.
-// Quais peças mexem, e como, está em historia.json. Este arquivo não muda.
+// Quais peças mexem, e como, está em historia.json. Este arquivo nêo muda.
 (function () {
   'use strict';
   const { limita, mistura, trecho, suave, sorteio, ruido } = Filme;
@@ -14,7 +14,7 @@
     const a = -(v0 * (x2 - x1) - v1 * x2 + v2 * x1 + (v1 - v2) * x0) / den, b = (v1 * y2 + v0 * (y1 - y2) - v2 * y1 + (v2 - v1) * y0) / den;
     const cc = (u0 * (x2 - x1) - u1 * x2 + u2 * x1 + (u1 - u2) * x0) / den, d = -(u1 * y2 + u0 * (y1 - y2) - u2 * y1 + (u2 - u1) * y0) / den;
     const e = (u0 * (v2 * x1 - v1 * x2) + v0 * (u1 * x2 - u2 * x1) + (u2 * v1 - u1 * v2) * x0) / den, f = (u0 * (v2 * y1 - v1 * y2) + v0 * (u1 * y2 - u2 * y1) + (u2 * v1 - u1 * v2) * y0) / den;
-    // aumenta o recorte um tiquinho para não aparecer a emenda entre triângulos
+    // aumenta o recorte um tiquinho para nêo aparecer a emenda entre triângulos
     const mx = (x0 + x1 + x2) / 3, my = (y0 + y1 + y2) / 3, g = 1.06;
     c.save(); c.beginPath(); c.moveTo(mx + (x0 - mx) * g, my + (y0 - my) * g); c.lineTo(mx + (x1 - mx) * g, my + (y1 - my) * g); c.lineTo(mx + (x2 - mx) * g, my + (y2 - my) * g); c.closePath(); c.clip();
     c.transform(a, b, cc, d, e, f); c.drawImage(img, 0, 0); c.restore();
@@ -26,7 +26,7 @@
       const c = tela.getContext('2d'), k = largura / L, acaso = sorteio(H.semente);
       const T = { titulo: [6.5, 7.5] };
 
-      // ---------- 1) ler a ilustração e separar: a "placa" (tudo que fica parado) e cada peça ----------
+      // ---------- 1) ler a ilustraçêo e separar: a "placa" (tudo que fica parado) e cada peça ----------
       const texto = await (await fetch(H.ilustracao, { cache: 'no-store' })).text();
       async function retrato(preparar) { // transforma o SVG (com umas partes escondidas) em imagem
         const doc = new DOMParser().parseFromString(texto, 'image/svg+xml'), raiz = doc.documentElement;
@@ -40,7 +40,7 @@
       const placa = await retrato((raiz) => raiz.querySelectorAll('[data-mexe]').forEach((g) => g.setAttribute('visibility', 'hidden')));
       const pecas = [];
       for (const def of H.pecas) {
-        const inteira = await retrato((raiz) => { raiz.setAttribute('visibility', 'hidden'); const g = raiz.querySelector('#' + CSS.escape(def.id)); if (!g) throw new Error('a ilustração não tem a peça ' + def.id); g.setAttribute('visibility', 'visible'); });
+        const inteira = await retrato((raiz) => { raiz.setAttribute('visibility', 'hidden'); const g = raiz.querySelector('#' + CSS.escape(def.id)); if (!g) throw new Error('a ilustraçêo nêo tem a peça ' + def.id); g.setAttribute('visibility', 'visible'); });
         // acha o retângulo onde a peça está (olhando onde há tinta)
         const d = inteira.getContext('2d').getImageData(0, 0, inteira.width, inteira.height).data;
         let x0 = 1e9, y0 = 1e9, x1 = -1, y1 = -1;
@@ -76,7 +76,7 @@
         // 'vento': empurra para o lado do vento (inclina) e balança em volta disso; nada na raiz, tudo na ponta
         const desvio = p.forca * p.comp * peso * (V * (p.inclina || 0.6) + (0.25 + 0.75 * V) * onda * 0.6) * H.vento;
         sai[0] = x + desvio * p.px - Math.abs(desvio) * 0.22 * p.ex; // vai para o lado...
-        sai[1] = y + desvio * p.py - Math.abs(desvio) * 0.22 * p.ey; // ...e recolhe um pouco na direção da raiz (o pano encurta quando voa)
+        sai[1] = y + desvio * p.py - Math.abs(desvio) * 0.22 * p.ey; // ...e recolhe um pouco na direçêo da raiz (o pano encurta quando voa)
       }
 
       const ponto = [0, 0];
@@ -91,7 +91,7 @@
         }
       }
 
-      // ---------- 3) o que o motor põe por cima da ilustração: luz, bichinhos, grão ----------
+      // ---------- 3) o que o motor põe por cima da ilustraçêo: luz, bichinhos, grêo ----------
       const MANCHAS = Array.from({ length: 9 }, () => ({ x: 60 + acaso() * 760, y: 800 + acaso() * 200, r: 60 + acaso() * 110, f: 0.5 + acaso() * 0.9, fase: acaso() * 6.28 })); // luz passando entre as folhas
       const SEMENTES = Array.from({ length: 34 }, () => ({ x: acaso() * 2400, y: 250 + acaso() * 700, v: 60 + acaso() * 150, ay: 14 + acaso() * 40, fy: 0.6 + acaso() * 1.4, fase: acaso() * 6.28, tam: 2 + acaso() * 3 }));
       const BORBOLETAS = [{ x: 980, y: 800, cor: '#ffd96a' }, { x: 420, y: 860, cor: '#ffffff' }, { x: 1640, y: 820, cor: '#ff9db5' }].map((b) => ({ ...b, fase: acaso() * 6.28 }));
@@ -112,7 +112,7 @@
         for (const p of pecas) desenharPeca(p, t, V);     // as peças, cada uma entortada
         c.scale(k, k);
         c.globalCompositeOperation = 'soft-light';
-        for (const m of MANCHAS) { // manchas de sol no chão, debaixo da árvore
+        for (const m of MANCHAS) { // manchas de sol no chêo, debaixo da árvore
           const x = m.x + 26 * Math.sin(t * m.f + m.fase) * (0.5 + V), y = m.y + 6 * Math.cos(t * m.f * 1.3 + m.fase), a = 0.5 + 0.3 * Math.sin(t * m.f * 1.7 + m.fase);
           const g = c.createRadialGradient(x, y, 0, x, y, m.r); g.addColorStop(0, `rgba(255,250,190,${a})`); g.addColorStop(1, 'rgba(255,250,190,0)');
           c.save(); c.translate(0, y * 0.6); c.scale(1, 0.4); c.fillStyle = g; c.fillRect(x - m.r, y - m.r, m.r * 2, m.r * 2); c.restore();
@@ -128,7 +128,7 @@
           c.fillStyle = b.cor; for (const lado of [-1, 1]) { c.beginPath(); c.ellipse(x + lado * 7 * asa, y, 8 * asa + 1, 10, lado * 0.4, 0, 6.2832); c.fill(); }
           c.fillStyle = '#4a3a30'; c.fillRect(x - 1.5, y - 8, 3, 16);
         }
-        // acabamento: grão de papel, cantos escuros, título
+        // acabamento: grêo de papel, cantos escuros, título
         c.setTransform(1, 0, 0, 1, 0, 0); c.globalCompositeOperation = 'overlay'; c.globalAlpha = 0.16; c.drawImage(grao, 0, 0); c.globalAlpha = 1; c.globalCompositeOperation = 'source-over';
         c.setTransform(k, 0, 0, k, 0, 0);
         const gv = c.createRadialGradient(L / 2, A / 2, A * 0.55, L / 2, A / 2, A * 1.1); gv.addColorStop(0, 'rgba(0,0,0,0)'); gv.addColorStop(1, 'rgba(20,40,30,0.32)'); c.fillStyle = gv; c.fillRect(0, 0, L, A);

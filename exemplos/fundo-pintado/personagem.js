@@ -48,7 +48,7 @@
       pinta(i % 2 ? cab : cabSombra, true, 2);
     }
 
-    // braço: dois ossos (ombro→cotovelo→mão). Os ângulos são em graus, 90 = para baixo.
+    // braço: dois ossos (ombro→cotovelo→mêo). Os ângulos sêo em graus, 90 = para baixo.
     function bracoDe(ox, oy, a1, a2, lado) {
       const r1 = a1 * Math.PI / 180, r2 = a2 * Math.PI / 180;
       const ex = ox + 86 * Math.cos(r1), ey = oy + 86 * Math.sin(r1), hx = ex + 80 * Math.cos(r2), hy = ey + 80 * Math.sin(r2);
@@ -167,7 +167,7 @@
     }
     c.restore(); // fim da cabeça
 
-    // ---------- braço da direita da tela: é ele que faz a ação ----------
+    // ---------- braço da direita da tela: é ele que faz a açêo ----------
     const sobe = braco * braco * (3 - 2 * braco);
     let a1 = 82 - 2 * onda(1.3, 1) - 4 * V, a2 = 88 - 4 * onda(1.3, 0.3) - 6 * V;
     if (acao === 'acenar') { a1 = mistura(a1, -30, sobe); a2 = mistura(a2, -80 + 22 * Math.sin(t * 7.5) * sobe, sobe); }

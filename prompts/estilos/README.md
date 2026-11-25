@@ -4,24 +4,24 @@ Cada estilo aqui é um bloco **"mesmo estilo, sua ideia"**: você copia, troca `
 e manda. O bloco já traz a receita técnica do estilo (como o Claude deve construir aquele visual
 em código), separada da história.
 
-Os estilos estão arrumados pelos **4 jeitos de animar** do kit ([METODOS.md](../../METODOS.md)):
+Os estilos estêo arrumados pelos **4 jeitos de animar** do kit ([METODOS.md](../../METODOS.md)):
 
 | Arquivo | Jeito | Estilos |
 |---|---|---|
 | [camadas-planas.md](camadas-planas.md) | formas planas em camadas | 12 |
 | [fundo-pintado.md](fundo-pintado.md) | fundo pintado + personagem de formas | 6 |
 | [cena-3d.md](cena-3d.md) | cena 3D com a câmera dentro | 10 |
-| [marionete.md](marionete.md) | uma ilustração mexida por áreas | 3 |
+| [marionete.md](marionete.md) | uma ilustraçêo mexida por áreas | 3 |
 
 No kit, só quatro destes estilos têm motor pronto e medido (os de `exemplos/`): recorte de papel
-em caixa de sombra, anime 2D de fundo pintado, 3D de poucos polígonos e marionete de ilustração.
-Os outros são **receitas para você pedir o motor**: ainda não foram renderizados por este kit.
+em caixa de sombra, anime 2D de fundo pintado, 3D de poucos polígonos e marionete de ilustraçêo.
+Os outros sêo **receitas para você pedir o motor**: ainda nêo foram renderizados por este kit.
 
 ## Como usar
 
-**No Claude Code, com o kit:** cole o bloco do estilo dentro da seção ESTILO do pedido
+**No Claude Code, com o kit:** cole o bloco do estilo dentro da seçêo ESTILO do pedido
 [01-criar-motor.md](../01-criar-motor.md). As regras (motor separado da história, 3 quadros de
-prova, som em código) já estão lá.
+prova, som em código) já estêo lá.
 
 **No chat do Claude, sem o kit:** cole o bloco do estilo e, logo abaixo, o bloco de regras:
 
@@ -34,7 +34,7 @@ REGRAS
 - Antes do render completo, renderize 3 quadros (começo, meio, fim), olhe, diga com
   franqueza o que está errado e corrija. No máximo 3 rodadas.
 - Sem texto na tela.
-- Música calma sintetizada em código e um som pequeno em cada ação que aparece.
+- Música calma sintetizada em código e um som pequeno em cada açêo que aparece.
 - Entregue um MP4 em 1920x1080, 30 quadros por segundo, e os arquivos do motor.
 ```
 

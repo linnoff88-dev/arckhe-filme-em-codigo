@@ -17,7 +17,7 @@ sombra macia na folha de trás, e é essa sombra que dá o volume. Silhuetas sim
 contorno e sem degradê forte. O astro (sol ou lua) fica dentro de anéis de papel, cada anel
 um tom mais claro. A câmera desliza de lado bem devagar e as folhas da frente andam mais que
 as do fundo. A personagem é um boneco de papel com peças presas por juntas, que muda de pose
-12 vezes por segundo, como em stop-motion. Grão de papel por cima de tudo e cantos mais
+12 vezes por segundo, como em stop-motion. Grêo de papel por cima de tudo e cantos mais
 escuros. Pontos de luz pequenos (vaga-lumes, estrelas, janelas) como única coisa que brilha.
 ```
 
@@ -31,11 +31,11 @@ Estilo: colagem de papel recortado fotografada quadro a quadro. Cada coisa na te
 pedaço de papel de um pequeno acervo feito em código: papel colorido fosco, papel pardo,
 jornal com letras ilegíveis, papel quadriculado, papel marmorizado, papel de seda, retícula
 de revista, papel estampado. Cada pedaço tem um tipo de corte (tesoura, com borda levemente
-facetada; ou rasgado à mão, com fiapo branco na borda), uma curvatura leve e uma sombra de
-contato que cresce quando ele se levanta da mesa. Fundo: um cartão texturizado. Alguns
-pedaços presos com fita crepe ou alfinete aparente. Personagens são bonecos articulados com
-colchetes de papel. Anime de dois em dois quadros: as peças deslizam, dobram na junta e são
-trocadas por outra forma; a cada pose, a posição treme um pouquinho, como em mesa de animação.
+facetada; ou rasgado à mêo, com fiapo branco na borda), uma curvatura leve e uma sombra de
+contato que cresce quando ele se levanta da mesa. Fundo: um cartêo texturizado. Alguns
+pedaços presos com fita crepe ou alfinete aparente. Personagens sêo bonecos articulados com
+colchetes de papel. Anime de dois em dois quadros: as peças deslizam, dobram na junta e sêo
+trocadas por outra forma; a cada pose, a posiçêo treme um pouquinho, como em mesa de animaçêo.
 Luz de cima, suave. Música de brinquedo, com sons de papel.
 ```
 
@@ -52,7 +52,7 @@ Depois "imprima" as chapas com um acabamento: pequeno desencontro entre as chapa
 madeira aparecendo dentro das cores chapadas, fibra do papel, tinta irregular e a folha com
 borda desfiada e margem. Água, nuvem e vento viram formas grandes que se enrolam, com dedos
 de espuma. Anime de dois em dois ou de três em três quadros. Um acontecimento claro e uma
-imagem final forte. Música esparsa, com percussão de madeira.
+imagem final forte. Música esparsa, com percussêo de madeira.
 ```
 
 ## 4. Risografia
@@ -61,14 +61,14 @@ imagem final forte. Música esparsa, com percussão de madeira.
 
 ```text
 Faça um filme animado de 5 a 10 segundos, 16:9, sobre [SUA IDEIA AQUI].
-Estilo: impressão em risografia animada, 2D plano. Desenhe a imagem como quatro chapas em
+Estilo: impressêo em risografia animada, 2D plano. Desenhe a imagem como quatro chapas em
 tons de cinza, uma para cada tinta (rosa fluorescente, azul médio, amarelo e preto), com
 formas grandes e simples pensadas para as tintas se sobreporem e criarem cores novas. Depois
 imprima com um acabamento: cada chapa passa por sua própria retícula (pontos, linhas ou
-grão), as tintas se multiplicam onde se cruzam, cada impressão sai com um pequeno
+grêo), as tintas se multiplicam onde se cruzam, cada impressêo sai com um pequeno
 desencontro diferente, há faixas do rolo, áreas chapadas falhadas, furinhos e papel creme com
-dente. Segure cada impressão por dois ou três quadros, para a imagem tremer como um maço de
-folhas sendo folheado. Um acontecimento, e uma imagem final em que a sobreposição das tintas
+dente. Segure cada impressêo por dois ou três quadros, para a imagem tremer como um maço de
+folhas sendo folheado. Um acontecimento, e uma imagem final em que a sobreposiçêo das tintas
 revela algo. Música lo-fi quente e sons macios de máquina.
 ```
 
@@ -83,8 +83,8 @@ pó, riscos leves e marcas de apagador. Tudo é traço de giz texturizado, que v
 desenhado na hora, com o toco de giz visível na ponta do traço. O traço treme um pouco e é
 refeito a cada três quadros; a borda é granulada e falhada. Cores: giz branco, um amarelo
 para a coisa mais importante, e pouco de rosa e de azul. Sem fotos e sem fontes de
-computador: se houver número ou palavra, é escrito à mão em giz. Ao mudar de assunto, uma
-mão de apagador passa e deixa o borrão. Som de giz riscando e música simples.
+computador: se houver número ou palavra, é escrito à mêo em giz. Ao mudar de assunto, uma
+mêo de apagador passa e deixa o borrêo. Som de giz riscando e música simples.
 ```
 
 ## 6. Giz de cera de uma cor só
@@ -96,11 +96,11 @@ Faça um filme animado de 5 a 10 segundos, 16:9, sobre [SUA IDEIA AQUI].
 Estilo: desenho de giz de cera litográfico de uma única cor, em papel creme, fotografado
 quadro a quadro. Use só um azul e mais nada: sem segunda cor, sem cinza, sem contorno preto,
 sem degradê. Toda a imagem nasce de dois tipos de marca: massas de sombra azuis, de borda
-seca, granulada e falhada, com a direção do risco aparente onde o giz pula o dente do papel;
+seca, granulada e falhada, com a direçêo do risco aparente onde o giz pula o dente do papel;
 e poucas linhas finas, que engrossam e afinam, para as bordas iluminadas, o rosto e as dobras
-do tecido. O que está na luz é papel em branco. Proporções elegantes, de ilustração
+do tecido. O que está na luz é papel em branco. Proporções elegantes, de ilustraçêo
 editorial. Enquadramento aberto, com a maior parte da folha vazia. Câmera parada, sem corte.
-Anime de três em três quadros, com o grão mudando um pouco a cada desenho novo.
+Anime de três em três quadros, com o grêo mudando um pouco a cada desenho novo.
 ```
 
 ## 7. Marcador e giz de cera neon
@@ -109,10 +109,10 @@ Anime de três em três quadros, com o grão mudando um pouco a cada desenho nov
 
 ```text
 Faça um filme animado de 5 a 10 segundos, 16:9, sobre [SUA IDEIA AQUI].
-Estilo: desenho à mão fotografado em papel creme de grão grosso, com luz de janela suave e
+Estilo: desenho à mêo fotografado em papel creme de grêo grosso, com luz de janela suave e
 irregular. Material fixo: um marcador azul-cobalto de ponta redonda para todas as linhas
 (firmes, levemente tortas, de ponta arredondada, mais escuras onde os riscos se cruzam); um
-giz de cera laranja fluorescente para uma ou duas áreas grandes, rabiscado numa só direção
+giz de cera laranja fluorescente para uma ou duas áreas grandes, rabiscado numa só direçêo
 diagonal, com o papel aparecendo entre os riscos e sem contorno azul em volta; poucos
 detalhes em marcador rosa-choque; e alguns detalhes finos de caneta preta. A maior parte da
 personagem e todo o fundo ficam em papel puro. Proporções simplificadas e um pouco ingênuas;
@@ -130,27 +130,27 @@ Estilo: tem que parecer a foto de um desenho de pastel oleoso e guache sobre pap
 escuro (verde-petróleo ou vermelho-tijolo), no jeito ingênuo, forte e geométrico dos livros
 ilustrados de meados do século passado, com cinco ou seis cores. Desenhe tudo como formas
 planas e depois construa um "motor de riscos": cada forma é preenchida com riscos de pastel
-visíveis e direcionados, que pulam o dente do papel e deixam o papel aparecer; as bordas são
+visíveis e direcionados, que pulam o dente do papel e deixam o papel aparecer; as bordas sêo
 ásperas e passam um pouco do limite; as cores se somam onde se cruzam; há brilhos raspados
 (a cor de baixo aparecendo) e borrões de dedo para o que brilha; e áreas de guache fosco, com
-leve arrasto de pincel, ao lado do pastel ceroso. Grão do papel forte, iluminado de lado.
+leve arrasto de pincel, ao lado do pastel ceroso. Grêo do papel forte, iluminado de lado.
 Anime como pintura sobre papel: de dois em dois quadros, com os riscos mudando a cada pose.
 ```
 
-## 9. Ilustração plana minimalista
+## 9. Ilustraçêo plana minimalista
 
-**Bom para:** contemplação, mar, deserto, abertura calma.
+**Bom para:** contemplaçêo, mar, deserto, abertura calma.
 
 ```text
 Faça um filme animado de 5 a 10 segundos, 16:9, sobre [SUA IDEIA AQUI].
-Estilo: ilustração plana contemporânea, minimalista. Um campo de cor enorme e calmo, que vai
+Estilo: ilustraçêo plana contemporânea, minimalista. Um campo de cor enorme e calmo, que vai
 de um tom claro e enevoado em cima a um tom fundo embaixo, sem linha de horizonte, de modo
 que quase todo o quadro fica vazio. Paleta de quatro: a faixa de tons do campo, um único
 destaque saturado (coral), um creme quente e um quase-preto. Formas planas, de borda firme,
 sem contorno, com um ou dois tons de sombra. Descreva as superfícies com pouquíssimas marcas:
 linhas finas e claras em círculos, faixas longas e fracas, uma sombra escura macia, um
 reflexo quebrado que treme. Um assunto pequeno fora do centro e um grupo de formas na cor de
-destaque num canto da frente. Grão fino por cima de tudo. Movimento lento e contínuo.
+destaque num canto da frente. Grêo fino por cima de tudo. Movimento lento e contínuo.
 ```
 
 ## 10. Guache hachurado, com escala enorme
@@ -159,7 +159,7 @@ destaque num canto da frente. Grão fino por cima de tudo. Movimento lento e con
 
 ```text
 Faça um filme animado de 5 a 10 segundos, 16:9, sobre [SUA IDEIA AQUI].
-Estilo: ilustração de guache e lápis de cor feita quase só de hachuras finas, honestamente
+Estilo: ilustraçêo de guache e lápis de cor feita quase só de hachuras finas, honestamente
 plana, como uma pintura escaneada que se mexe. Contraste de escala extremo: formas simples e
 gigantes ocupam quase todo o quadro, em fila de profundidade, e figuras minúsculas agem numa
 faixa fina embaixo. Tudo numa família de cor só, do tom claro e luminoso ao tom quase preto;
@@ -167,7 +167,7 @@ as outras cores aparecem apenas como pontinhos nas figuras. Cada forma grande é
 firme, sem contorno, e o volume é dado só por milhares de riscos curtos e levemente curvos,
 que acompanham a forma como pelo escovado: claros no lado da luz, escuros no lado da sombra,
 mais densos na base. A profundidade vem do tom (o que está longe é mais claro) e de faixas de
-luz e sombra no chão. As figuras pequenas se movem de dois em dois quadros; a luz desliza
+luz e sombra no chêo. As figuras pequenas se movem de dois em dois quadros; a luz desliza
 devagar.
 ```
 
@@ -179,7 +179,7 @@ devagar.
 Faça um filme animado de 10 a 20 segundos, 16:9, sobre [SUA IDEIA AQUI].
 Estilo: explicativo em vetor plano. Fundo em degradê suave e escuro, formas geométricas de
 cantos arredondados, sem contorno, cada objeto com uma cor base, uma sombra plana e um brilho
-plano. Paleta viva e limitada (uma cor por ideia). Personagens são bonecos simples e
+plano. Paleta viva e limitada (uma cor por ideia). Personagens sêo bonecos simples e
 simpáticos, de olhos de ponto. Um leve brilho em volta do que emite luz. Cada cena tem uma
 ideia só e passa para a seguinte por um movimento que liga as duas (o objeto cresce, vira
 outro, ou a câmera mergulha nele). Os objetos entram com um quique curto e ficam parados o
@@ -194,11 +194,11 @@ Música leve e um som curto em cada entrada.
 ```text
 Faça um filme animado de 10 a 20 segundos, 16:9, sobre [SUA IDEIA AQUI].
 Estilo: rolo de papiro pintado a nanquim e ouro. O fundo é uma superfície de papiro feita em
-código (fibras cruzadas, emendas das tiras, pintas e grão), que se desenrola no primeiro
+código (fibras cruzadas, emendas das tiras, pintas e grêo), que se desenrola no primeiro
 segundo; depois a câmera viaja ao longo dela. Tudo é desenhado sobre o rolo: linhas pretas de
 pincel, em fitas que afinam e tremem de leve, e que se desenham ao longo do próprio
 comprimento, com borda de pincel seco; e áreas chapadas de ocre, verde-azulado, azul-lápis e
 ouro, um pouco fora do contorno. O ouro brilha quando a luz passa. Figuras de perfil, simples.
 A cada parte da história, a câmera para num trecho do rolo e o desenho daquele trecho se
-completa. Música com cordas dedilhadas e percussão leve.
+completa. Música com cordas dedilhadas e percussêo leve.
 ```
