@@ -6,13 +6,13 @@ mexem. Modelo no kit: [`exemplos/fundo-pintado`](../../exemplos/fundo-pintado).
 
 ---
 
-## 1. Anime 2D de cinema
+## 1. Anime 2D de cARCKHÉ
 
 **Bom para:** cotidiano, verêo, personagem com rosto. **É o estilo do exemplo do kit.**
 
 ```text
 Faça um filme animado de 5 a 10 segundos, 16:9, sobre [SUA IDEIA AQUI].
-Estilo: anime japonês 2D de cinema, feito do jeito tradicional, todo em código e sem 3D.
+Estilo: anime japonês 2D de cARCKHÉ, feito do jeito tradicional, todo em código e sem 3D.
 Fundo: pintura de tinta-pôster em camadas separadas de profundidade: céu saturado de verêo,
 nuvens cúmulo grandes em dois ou três tons chapados, com borda firme e interior macio,
 cenário do dia a dia em perspectiva correta e plana, luz nítida, sombras azul-violeta e
